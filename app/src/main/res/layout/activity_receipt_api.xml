@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ru.qualitylab.evotor.evotortest6.ReceiptApiActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:checkedButton="@+id/rbSell"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbSell"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="SELL" />
+
+                    <RadioButton
+                        android:id="@+id/rbPayback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="PAYBACK" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnGetReceiptOpen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Открытый чек" />
+
+            <Button
+                android:id="@+id/btnReceiptById"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Найти чек по UUID" />
+
+            <Button
+                android:id="@+id/btnReceiptBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Найти товар по штрихкоду" />
+
+            <Button
+                android:id="@+id/btnGetHeaders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Все чеки" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Укажи UUID или отсканируй Штрихкод"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:textIsSelectable="true"
+                android:text="log" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
