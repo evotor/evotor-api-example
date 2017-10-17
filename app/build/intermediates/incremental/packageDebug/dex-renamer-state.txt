@@ -1,4 +1,0 @@
-#Tue Oct 17 14:12:19 MSK 2017
-base.0=C\:\\Users\\power\\EvotorTest\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\Users\\power\\EvotorTest\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
