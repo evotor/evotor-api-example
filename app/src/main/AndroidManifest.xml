@@ -149,7 +149,7 @@
 
         <service
             android:name=".SplitService"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="false"
             android:icon="@mipmap/ic_launcher"
             android:label="Разделение платежей в чеке">
@@ -200,15 +200,6 @@
         </service>
 
         <activity android:name=".InventoryApiActivity" />
-
-        <service
-            android:name=".MyPaybackPrintService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
-            </intent-filter>
-        </service>
 
         <activity android:name=".PrintActivity"></activity>
     </application>

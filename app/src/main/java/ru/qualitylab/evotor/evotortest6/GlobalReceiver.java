@@ -59,8 +59,8 @@ public class GlobalReceiver extends BroadcastReceiver {
                 Toast.makeText(context, action + "\nData: " + PositionRemovedEvent.create(bundle).getReceiptUuid() + " " + PositionRemovedEvent.create(bundle).getPosition().getName(), Toast.LENGTH_SHORT).show();
                 break;
             case "evotor.intent.action.inventory.PRODUCTS_UPDATED":
-                Log.e(getClass().getSimpleName(), "Data: ###");
-                Toast.makeText(context, "Data: ###", Toast.LENGTH_SHORT).show();
+                Log.e(getClass().getSimpleName(), "Data: PRODUCTS_UPDATED");
+                Toast.makeText(context, "Data: PRODUCTS_UPDATED", Toast.LENGTH_SHORT).show();
                 break;
             case "evotor.intent.action.receipt.sell.CLEARED":
                 Log.e(getClass().getSimpleName(), "Data:" + ReceiptClearedEvent.create(bundle).getReceiptUuid());
