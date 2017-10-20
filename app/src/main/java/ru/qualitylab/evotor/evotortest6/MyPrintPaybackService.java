@@ -25,16 +25,10 @@ import ru.evotor.framework.core.action.event.receipt.print_extra.PrintExtraRequi
 import ru.evotor.framework.core.action.event.receipt.print_extra.PrintExtraRequiredEventProcessor;
 import ru.evotor.framework.core.action.event.receipt.print_extra.PrintExtraRequiredEventResult;
 import ru.evotor.framework.core.action.processor.ActionProcessor;
-import ru.evotor.framework.receipt.ExtraKey;
-import ru.evotor.framework.receipt.Position;
-import ru.evotor.framework.receipt.Receipt;
-import ru.evotor.framework.receipt.ReceiptApi;
-import ru.evotor.framework.receipt.print_extras.PrintExtraPlacePositionFooter;
 import ru.evotor.framework.receipt.print_extras.PrintExtraPlacePrintGroupHeader;
-import ru.evotor.framework.receipt.print_extras.PrintExtraPlacePrintGroupSummary;
 import ru.evotor.framework.receipt.print_extras.PrintExtraPlacePrintGroupTop;
 
-public class MyPrintService extends IntegrationService {
+public class MyPrintPaybackService extends IntegrationService {
 
     private Bitmap getBitmapFromAsset(String strName) {
         AssetManager assetManager = getAssets();
@@ -52,7 +46,7 @@ public class MyPrintService extends IntegrationService {
     protected Map<String, ActionProcessor> createProcessors() {
         Map<String, ActionProcessor> map = new HashMap<>();
         map.put(
-                PrintExtraRequiredEvent.NAME_SELL_RECEIPT,
+                PrintExtraRequiredEvent.NAME_PAYBACK_RECEIPT,
                 new PrintExtraRequiredEventProcessor() {
                     @Override
                     public void call(@NotNull String s, @NotNull PrintExtraRequiredEvent printExtraRequiredEvent, @NotNull Callback callback) {
@@ -72,13 +66,13 @@ public class MyPrintService extends IntegrationService {
                                         new PrintableText("Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus.")
                                 }
                         ));
-                        Receipt r = ReceiptApi.getReceipt(MyPrintService.this, Receipt.Type.SELL);
+                        /*Receipt r = ReceiptApi.getReceipt(MyPrintPaybackService.this, Receipt.Type.PAYBACK);
                         if (r != null) {
                             setPrintExtras.add(new SetPrintExtra(
                                     new PrintExtraPlacePrintGroupSummary(null),
                                     new IPrintable[]{
                                             new PrintableText("EXTRA:" + r.getHeader().getExtra()),
-                                            //new PrintableBarcode("4750232005910", PrintableBarcode.BarcodeType.EAN13),
+                                            new PrintableBarcode("4750232005910", PrintableBarcode.BarcodeType.EAN13),
                                             new PrintableText("Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus.")
                                     }
                             ));
@@ -91,16 +85,16 @@ public class MyPrintService extends IntegrationService {
                                                 new PrintableText("UUID:" + p.getUuid() + "\n EXTRA:" + (list.size() > 0 ? list.get(0).getDescription() : ""))
                                         }
                                 ));
-                            /*setPrintExtras.add(new SetPrintExtra(
+                            setPrintExtras.add(new SetPrintExtra(
                                     new PrintExtraPlacePositionAllSubpositionsFooter(p.getUuid()),
                                     new IPrintable[]{
                                             new PrintableBarcode("4750232005910", PrintableBarcode.BarcodeType.EAN13),
                                             new PrintableText("<Текст>\n" + p.getUuid() + "\n<Текст>")
                                     }
-                            ));*/
+                            ));
 
                             }
-                        }
+                        }*/
                         try {
                             callback.onResult(new PrintExtraRequiredEventResult(setPrintExtras).toBundle());
                         } catch (RemoteException exc) {

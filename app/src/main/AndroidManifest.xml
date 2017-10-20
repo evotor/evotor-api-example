@@ -160,7 +160,7 @@
 
         <service
             android:name=".SplitGroupService"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Разделение платежей в чеке">
@@ -188,6 +188,14 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="evo.v2.receipt.sell.printExtra.REQUIRED" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MyPrintPaybackService"
+            android:enabled="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
             </intent-filter>
         </service>
 
