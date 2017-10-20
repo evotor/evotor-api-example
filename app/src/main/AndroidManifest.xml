@@ -149,13 +149,23 @@
 
         <service
             android:name=".SplitService"
+            android:enabled="false"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Разделение платежей в чеке">
+            <intent-filter>
+                <action android:name="evo.v2.receipt.sell.payment.SELECTED" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".SplitGroupService"
             android:enabled="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Разделение платежей в чеке">
             <intent-filter>
-                <action android:name="evo.v2.receipt.sell.payment.SELECTED" />
-                <!-- <action android:name="evo.v2.receipt.sell.printGroup.REQUIRED" /> -->
+                 <action android:name="evo.v2.receipt.sell.printGroup.REQUIRED" />
             </intent-filter>
         </service>
 
