@@ -188,9 +188,11 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                 <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
+                <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
             </intent-filter>
         </service>
+
+        <activity android:name=".PrintActivity"></activity>
     </application>
 
 </manifest>

@@ -1,11 +1,7 @@
 package ru.qualitylab.evotor.evotortest6;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,8 +9,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,15 +17,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import ru.evotor.devices.commons.ConnectionWrapper;
-import ru.evotor.devices.commons.DeviceServiceConnector;
-import ru.evotor.devices.commons.exception.DeviceServiceException;
-import ru.evotor.devices.commons.printer.PrinterDocument;
-import ru.evotor.devices.commons.printer.printable.PrintableBarcode;
-import ru.evotor.devices.commons.printer.printable.PrintableImage;
-import ru.evotor.devices.commons.printer.printable.PrintableText;
-import ru.evotor.devices.commons.services.IPrinterServiceWrapper;
-import ru.evotor.devices.commons.services.IScalesServiceWrapper;
 import ru.evotor.framework.core.IntegrationAppCompatActivity;
 import ru.evotor.framework.core.IntegrationException;
 import ru.evotor.framework.core.IntegrationManagerCallback;
@@ -53,16 +38,7 @@ import ru.evotor.framework.receipt.Receipt;
 
 public class MainActivity extends IntegrationAppCompatActivity {
 
-    private Bitmap getBitmapFromAsset(String strName) {
-        AssetManager assetManager = getAssets();
-        InputStream istr = null;
-        try {
-            istr = assetManager.open(strName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return BitmapFactory.decodeStream(istr);
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,42 +58,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         Button btnPrint = (Button) findViewById(R.id.btnPrint);
         Button btnInventoryApi = (Button) findViewById(R.id.btnInventoryApi);
 
-        DeviceServiceConnector.startInitConnections(getApplicationContext());
-        DeviceServiceConnector.addConnectionWrapper(new ConnectionWrapper() {
-            @Override
-            public void onPrinterServiceConnected(IPrinterServiceWrapper printerService) {
-                Log.e("", "onPrinterServiceConnected");
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            DeviceServiceConnector.getPrinterService().printDocument(
-                                    ru.evotor.devices.commons.Constants.DEFAULT_DEVICE_INDEX,
-                                    new PrinterDocument(
-                                            new PrintableText("INIT OK")));
-                        } catch (DeviceServiceException e) {
-                            e.printStackTrace();
-                        }
 
-                    }
-                }.start();
-            }
-
-            @Override
-            public void onPrinterServiceDisconnected() {
-                Log.e("", "onPrinterServiceDisconnected");
-            }
-
-            @Override
-            public void onScalesServiceConnected(IScalesServiceWrapper scalesService) {
-                Log.e("", "onScalesServiceConnected");
-            }
-
-            @Override
-            public void onScalesServiceDisconnected() {
-                Log.e("", "onScalesServiceDisconnected");
-            }
-        });
 
         btnInventoryApi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,23 +70,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         btnPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            DeviceServiceConnector.getPrinterService().printDocument(
-                                    ru.evotor.devices.commons.Constants.DEFAULT_DEVICE_INDEX,
-                                    new PrinterDocument(
-                                            new PrintableText("Первая строка"),
-                                            new PrintableText("Довольно длинный текст, помещающийся лишь на несколько строк"),
-                                            new PrintableBarcode("4606272036264", PrintableBarcode.BarcodeType.EAN13),
-                                            new PrintableImage(getBitmapFromAsset("ic_launcher.png"))));
-                        } catch (DeviceServiceException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }.start();
+                startActivity(new Intent(MainActivity.this, PrintActivity.class));
             }
         });
 
@@ -234,7 +159,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         payments.put(new Payment(
                 UUID.randomUUID().toString(),
                 new BigDecimal(9300),
-                new PaymentSystem(PaymentType.CASH, "Internet", "12424"),
+                new PaymentSystem(PaymentType.ELECTRON, "Internet", "12424"),
                 null,
                 null,
                 null
@@ -242,7 +167,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         PrintGroup printGroup = new PrintGroup(UUID.randomUUID().toString(),
                 PrintGroup.Type.CASH_RECEIPT, null, null, null, null, false);
         final Receipt.PrintReceipt printReceipt = new Receipt.PrintReceipt(
-                null,
+                printGroup,
                 list,
                 payments,
                 new HashMap<Payment, BigDecimal>()
@@ -251,7 +176,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         ArrayList<Receipt.PrintReceipt> listDocs = new ArrayList<>();
         listDocs.add(printReceipt);
         BigDecimal receiptDiscount = new BigDecimal(1000);
-        new PrintSellReceiptCommand(listDocs, null, "+79886023135", "admin@ncreaid.com", receiptDiscount).process(MainActivity.this, new IntegrationManagerCallback() {
+        new PrintSellReceiptCommand(listDocs, null, "79886023135", "k.kanyuk@quality-lab.ru", receiptDiscount).process(MainActivity.this, new IntegrationManagerCallback() {
             @Override
             public void run(IntegrationManagerFuture integrationManagerFuture) {
                 try {
