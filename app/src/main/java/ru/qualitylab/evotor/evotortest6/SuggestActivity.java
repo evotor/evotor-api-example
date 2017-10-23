@@ -76,12 +76,12 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
             @Override
             public void onClick(View view) {
                 List<IPositionChange> changes = new ArrayList<>();
-                /*changes.add(new PositionEdit(
+                changes.add(new PositionEdit(
                         Position.Builder.newInstance(
                                 (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, finalProdUuidCoffee),
                                 new BigDecimal(qty.getText().toString())
                         ).build()
-                ));*/
+                ));
                 ProductItem.Product item = (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, finalProdUuidCoffee);
                 /*changes.add(new PositionEdit(
                         Position.Builder.newInstance(

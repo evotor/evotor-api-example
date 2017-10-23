@@ -24,8 +24,8 @@ public class MyIntegrationService extends IntegrationService {
         map.put(BeforePositionsEditedEvent.NAME_SELL_RECEIPT, new BeforePositionsEditedEventProcessor() {
             @Override
             public void call(@NonNull String action, @NonNull BeforePositionsEditedEvent event, @NonNull Callback callback) {
-                boolean hasCoffee = false, hasHoney = false;
-                String uuidCoffee = "", prodUuidCoffee = "", uuidHoney = "", prodUuidHoney = "";
+                boolean hasCoffee = false;
+                String uuidCoffee = "", prodUuidCoffee = "";
                 for (IPositionChange change : event.getChanges()) {
                     if (change instanceof PositionAdd) {
                         Position position = ((PositionAdd) change).getPosition();
@@ -33,11 +33,6 @@ public class MyIntegrationService extends IntegrationService {
                             uuidCoffee = position.getUuid();
                             prodUuidCoffee = position.getProductUuid();
                             hasCoffee = true;
-                            break;
-                        } else if (position.getName().toLowerCase().contains("мед")) {
-                            uuidHoney = position.getUuid();
-                            prodUuidHoney = position.getProductUuid();
-                            hasHoney = true;
                             break;
                         }
                     }
@@ -49,36 +44,14 @@ public class MyIntegrationService extends IntegrationService {
                         intent.putExtra("uuidCoffee", uuidCoffee);
                         intent.putExtra("prodUuidCoffee", prodUuidCoffee);
                         callback.startActivity(intent);
-                    }else if(hasHoney){
-                        Intent intent = new Intent(getApplicationContext(), SuggestActivity.class);
-                        intent.putExtra("uuidHoney", uuidHoney);
-                        intent.putExtra("prodUuidHoney", prodUuidHoney);
-                        callback.startActivity(intent);
                     } else {
                         callback.skip();
                     }
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
-
-//                try {
-//                    callback.startActivity(new Intent(getApplicationContext(), EditActivity.class));
-//                } catch (RemoteException e) {
-//                    e.printStackTrace();
-//                }
             }
         });
-//        map.put(ReceiptDiscountEvent.NAME_SELL_RECEIPT, new ReceiptDiscountEventProcessor() {
-//            @Override
-//            public void call(@NonNull String action, @NonNull ReceiptDiscountEvent event, @NonNull ActionProcessor.Callback callback){
-//                try {
-//                    callback.startActivity(new Intent(getApplicationContext(), EditActivity.class));
-//                } catch (RemoteException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
         return map;
     }
 }

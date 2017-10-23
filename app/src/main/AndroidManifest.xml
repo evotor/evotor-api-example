@@ -184,7 +184,7 @@
         </service>
         <service
             android:name=".MyPrintService"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="evo.v2.receipt.sell.printExtra.REQUIRED" />
@@ -192,7 +192,7 @@
         </service>
         <service
             android:name=".MyPrintPaybackService"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
