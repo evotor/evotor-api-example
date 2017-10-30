@@ -144,7 +144,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                         0,
                         new BigDecimal(500),
                         BigDecimal.ONE)
-                        //Добавление цены с учетом скидки на позицию. Скидка = price - priceWithDiscountPosition
+                        //Добавление цены с учетом скидки на позицию. Итог = price - priceWithDiscountPosition
                         .setPriceWithDiscountPosition(new BigDecimal(300)).build()
         );
         //Способ оплаты
@@ -215,8 +215,8 @@ public class MainActivity extends IntegrationAppCompatActivity {
                                 new BigDecimal(200),
                                 //Количество
                                 new BigDecimal(1)
-                                //Добавление цены с учетом скидки на позицию. Скидка = price - priceWithDiscountPosition
-                        ).setPriceWithDiscountPosition(new BigDecimal(300))
+                                //Добавление цены с учетом скидки на позицию. Итог = price - priceWithDiscountPosition
+                        ).setPriceWithDiscountPosition(new BigDecimal(100))
                                 .setExtraKeys(set).build()
                 )
         );

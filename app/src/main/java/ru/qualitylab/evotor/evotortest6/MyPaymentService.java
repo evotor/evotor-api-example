@@ -18,9 +18,9 @@ import ru.evotor.framework.core.action.event.receipt.payment.system.event.Paymen
 import ru.evotor.framework.core.action.processor.ActionProcessor;
 
 /**
- * Created by power on 30.10.2017.
+ * Служба для взаимодействия со сторонними платёжными системами
+ * В магифесте добавить права <uses-permission android:name="ru.evotor.permission.PAYMENT_SYSTEM" />
  */
-
 public class MyPaymentService extends IntegrationService {
     public static final String TAG = "PaymentService";
     public static final String EXTRA_NAME_OPERATION = "EXTRA_NAME_OPERATION";

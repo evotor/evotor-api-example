@@ -22,7 +22,7 @@
                 android:text="Отсканируй товар и получишь его UUID" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

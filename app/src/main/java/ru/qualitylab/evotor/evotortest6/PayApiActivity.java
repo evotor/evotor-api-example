@@ -13,19 +13,24 @@ import ru.evotor.framework.payment.PaymentAccount;
 import ru.evotor.framework.payment.PaymentSystem;
 import ru.evotor.framework.payment.PaymentSystemApi;
 
+/**
+ * Платежные системы PaymentSystem API
+ */
 public class PayApiActivity extends IntegrationAppCompatActivity {
+
+    TextView log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_api);
 
-        Button getInfo = (Button) findViewById(R.id.btnGet);
-        final TextView log = (TextView) findViewById(R.id.textView);
+        log = (TextView) findViewById(R.id.textView);
 
-        getInfo.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnGet).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Получить список платёжных систем, а также их учётных записей, доступных на смарт-терминале
                 List<Pair<PaymentSystem, List<PaymentAccount>>> data = PaymentSystemApi.getPaymentSystems(PayApiActivity.this);
                 StringBuffer sb = new StringBuffer();
                 for (Pair item : data) {

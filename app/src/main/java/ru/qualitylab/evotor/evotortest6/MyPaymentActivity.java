@@ -14,6 +14,9 @@ import ru.evotor.framework.core.action.event.receipt.payment.system.result.Payme
 import ru.evotor.framework.core.action.event.receipt.payment.system.result.PaymentSystemPaymentOkResult;
 import ru.evotor.framework.payment.PaymentType;
 
+/**
+ * Пример операции для службы взаимодействия со сторонними платёжными системами
+ */
 public class MyPaymentActivity extends IntegrationActivity {
     public static final String EXTRA_NAME_OPERATION = "EXTRA_NAME_OPERATION";
 

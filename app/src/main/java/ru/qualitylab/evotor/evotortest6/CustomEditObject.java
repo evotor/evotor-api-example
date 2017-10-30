@@ -10,9 +10,6 @@ public class CustomEditObject {
     private String price;
     private String qty;
 
-    public CustomEditObject() {
-    }
-
     public CustomEditObject(String uuid, String name, String price, String qty) {
         this.uuid = uuid;
         this.name = name;

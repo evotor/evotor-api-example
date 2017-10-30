@@ -21,6 +21,10 @@ import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEve
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEventResult;
 import ru.evotor.framework.core.action.processor.ActionProcessor;
 
+
+/**
+ * Применение скидки на весь чек продажи
+ */
 public class MyDiscountService extends IntegrationService {
     @Nullable
     @Override
@@ -30,13 +34,15 @@ public class MyDiscountService extends IntegrationService {
             @Override
             public void call(@NonNull String action, @NonNull ReceiptDiscountEvent event, @NonNull Callback callback) {
                 try {
+                    //Значение скидки на весь чек в рублях или иной валюте
+                    BigDecimal discount = new BigDecimal(10);
                     JSONObject object = new JSONObject();
                     object.put("someSuperKey", "AWESOME DISCOUNT");
                     SetExtra extra = new SetExtra(object);
                     List<IPositionChange> listOfChanges = new ArrayList<>();
                     callback.onResult(
                             new ReceiptDiscountEventResult(
-                                    new BigDecimal(10),
+                                    discount,
                                     extra,
                                     listOfChanges
                             ));

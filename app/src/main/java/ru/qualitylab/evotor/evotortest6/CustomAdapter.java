@@ -1,6 +1,7 @@
 package ru.qualitylab.evotor.evotortest6;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +16,11 @@ import java.util.List;
  */
 
 public class CustomAdapter extends ArrayAdapter<CustomEditObject> {
-    Context mContext;
-    List<CustomEditObject> mItems;
+    private Context mContext;
+    private List<CustomEditObject> mItems;
     private ListViewHolder holder;
 
-    public CustomAdapter(Context context, int resourceId, List<CustomEditObject> objects) {
+    CustomAdapter(Context context, int resourceId, List<CustomEditObject> objects) {
         super(context, resourceId, objects);
         this.mItems = objects;
         this.mContext = context;
@@ -40,8 +41,9 @@ public class CustomAdapter extends ArrayAdapter<CustomEditObject> {
         return position % 3;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         final int pos = position;
         View v = convertView;
         if (v == null) {
@@ -70,17 +72,8 @@ public class CustomAdapter extends ArrayAdapter<CustomEditObject> {
         return v;
     }
 
-    public void removeItem(int position) {
+    private void removeItem(int position) {
         mItems.remove(position);
         notifyDataSetChanged();
-    }
-
-    public void addItem(CustomEditObject data) {
-        mItems.add(data);
-        notifyDataSetChanged();
-    }
-
-    public List<CustomEditObject> getItems() {
-        return mItems;
     }
 }

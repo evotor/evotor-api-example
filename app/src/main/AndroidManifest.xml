@@ -194,6 +194,13 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <!-- Открытие ящика для денег -->
+            <intent-filter>
+                <action android:name="evotor.intent.action.cashDrawer.OPEN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
 
         <!-- Разделение платежей в чеке продажи -->
@@ -223,7 +230,7 @@
         <!-- Начисление скидки на чек возврата -->
         <service
             android:name=".MyDiscountService"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Скидка в чеке">

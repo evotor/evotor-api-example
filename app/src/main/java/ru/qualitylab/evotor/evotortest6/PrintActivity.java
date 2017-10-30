@@ -34,14 +34,19 @@ import ru.evotor.devices.commons.services.IScalesServiceWrapper;
 import ru.evotor.framework.core.IntegrationAppCompatActivity;
 import ru.evotor.integrations.BarcodeBroadcastReceiver;
 
+/**
+ * Пример работы с принтером чеков терминала
+ * В манифесте добавить права <uses-permission android:name="ru.evotor.permission.receipt.printExtra.SET" />
+ */
 public class PrintActivity extends IntegrationAppCompatActivity {
 
     EditText etText;
     RadioGroup rgType, rgBarType;
-    Button btnAdd, btnPrint, btnLorem;
     ListView list;
 
+    //Тип штрихкода: EAN13, EAN8, CODE39, UPCA
     PrintableBarcode.BarcodeType barType = PrintableBarcode.BarcodeType.EAN8;
+    //Тип печати: BARCODE, IMAGE, TEXT
     PrintData.PrintType printType = PrintData.PrintType.TEXT;
 
     List<PrintData> mList = new ArrayList<>();
@@ -55,23 +60,24 @@ public class PrintActivity extends IntegrationAppCompatActivity {
         setContentView(R.layout.activity_print);
 
         etText = (EditText) findViewById(R.id.etText);
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnPrint = (Button) findViewById(R.id.btnPrint);
-        btnLorem = (Button) findViewById(R.id.btnLorem);
         rgBarType = (RadioGroup) findViewById(R.id.rgBarType);
         rgType = (RadioGroup) findViewById(R.id.rgType);
         list = (ListView) findViewById(R.id.list);
 
+        //Инициализация оборудования
         DeviceServiceConnector.startInitConnections(getApplicationContext());
         DeviceServiceConnector.addConnectionWrapper(new ConnectionWrapper() {
             @Override
             public void onPrinterServiceConnected(IPrinterServiceWrapper printerService) {
-                Log.e("", "onPrinterServiceConnected");
+                Log.e(getClass().getSimpleName(), "onPrinterServiceConnected");
                 new Thread() {
                     @Override
                     public void run() {
                         try {
+                            //Печать сообщения об успешной инициализации принтера
                             DeviceServiceConnector.getPrinterService().printDocument(
+                                    //В настоящий момент печать возможна только на ККМ, встроенной в смарт-терминал,
+                                    //поэтому вместо номера устройства всегда следует передавать константу
                                     ru.evotor.devices.commons.Constants.DEFAULT_DEVICE_INDEX,
                                     new PrinterDocument(
                                             new PrintableText("PRINTER INIT OK")));
@@ -85,17 +91,17 @@ public class PrintActivity extends IntegrationAppCompatActivity {
 
             @Override
             public void onPrinterServiceDisconnected() {
-                Log.e("", "onPrinterServiceDisconnected");
+                Log.e(getClass().getSimpleName(), "onPrinterServiceDisconnected");
             }
 
             @Override
             public void onScalesServiceConnected(IScalesServiceWrapper scalesService) {
-                Log.e("", "onScalesServiceConnected");
+                Log.e(getClass().getSimpleName(), "onScalesServiceConnected");
             }
 
             @Override
             public void onScalesServiceDisconnected() {
-                Log.e("", "onScalesServiceDisconnected");
+                Log.e(getClass().getSimpleName(), "onScalesServiceDisconnected");
             }
         });
 
@@ -144,34 +150,41 @@ public class PrintActivity extends IntegrationAppCompatActivity {
             }
         });
 
-        btnLorem.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnLorem).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Генерация случайных слов
                 Lorem lorem = LoremIpsum.getInstance();
                 etText.setText(lorem.getWords(10));
             }
         });
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnAdd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Добавить указанные данные для печати в список
                 mList.add(new PrintData(barType, printType, etText.getText().toString()));
                 adapter = new PrintAdapter(PrintActivity.this, R.layout.customeditrow, mList);
                 list.setAdapter(adapter);
             }
         });
 
-        btnPrint.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnPrint).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Печать списка данных на принтере
                 if (mList.size() > 0) {
                     final List<IPrintable> pList = new ArrayList<>();
                     for (PrintData item : mList) {
                         if (item.getPrintType().equals(PrintData.PrintType.TEXT)) {
+                            //Печать текста
                             pList.add(new PrintableText(item.getData()));
                         } else if (item.getPrintType().equals(PrintData.PrintType.BARCODE)) {
+                            //Печать штрихкода
+                            //Штрихкод должен быть с верной контрольной суммой
                             pList.add(new PrintableBarcode(item.getData(), item.getBarType()));
                         } else if (item.getPrintType().equals(PrintData.PrintType.IMAGE)) {
+                            //Печать картинки
                             pList.add(new PrintableImage(getBitmapFromAsset("ic_launcher.png")));
                         }
                     }
@@ -181,6 +194,8 @@ public class PrintActivity extends IntegrationAppCompatActivity {
                             try {
 
                                 DeviceServiceConnector.getPrinterService().printDocument(
+                                        //В настоящий момент печать возможна только на ККМ, встроенной в смарт-терминал,
+                                        //поэтому вместо номера устройства всегда следует передавать константу
                                         ru.evotor.devices.commons.Constants.DEFAULT_DEVICE_INDEX,
                                         new PrinterDocument(pList.toArray(new IPrintable[pList.size()])));
                             } catch (DeviceServiceException e) {
@@ -193,6 +208,7 @@ public class PrintActivity extends IntegrationAppCompatActivity {
             }
         });
 
+        //Получение штрихкода со сканера
         mBarcodeBroadcastReceiver = new BarcodeBroadcastReceiver() {
             @Override
             public void onBarcodeReceived(String barcode, Context context) {
@@ -200,6 +216,8 @@ public class PrintActivity extends IntegrationAppCompatActivity {
             }
         };
 
+        //Тестовые данные для печати
+        //Все штрихкоды с контрольной суммой
         mList.add(new PrintData(barType, printType, "Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor accumsan tincidunt. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus."));
         mList.add(new PrintData(barType, PrintData.PrintType.IMAGE, ""));
         mList.add(new PrintData(PrintableBarcode.BarcodeType.EAN13, PrintData.PrintType.BARCODE, "4750232005910"));
@@ -259,23 +277,31 @@ public class PrintActivity extends IntegrationAppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        //Останавливаем подписку для событий сканера
         unregisterReceiver(mBarcodeBroadcastReceiver);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        //Регистрируем подписку на события сканера
         registerReceiver(mBarcodeBroadcastReceiver, BarcodeBroadcastReceiver.BARCODE_INTENT_FILTER, BarcodeBroadcastReceiver.SENDER_PERMISSION, null);
     }
 
-    private Bitmap getBitmapFromAsset(String strName) {
+    /**
+     * Получение картинки из каталога asset приложения
+     *
+     * @param fileName имя файла
+     * @return значение типа Bitmap
+     */
+    private Bitmap getBitmapFromAsset(String fileName) {
         AssetManager assetManager = getAssets();
-        InputStream istr = null;
+        InputStream stream = null;
         try {
-            istr = assetManager.open(strName);
+            stream = assetManager.open(fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return BitmapFactory.decodeStream(istr);
+        return BitmapFactory.decodeStream(stream);
     }
 }
