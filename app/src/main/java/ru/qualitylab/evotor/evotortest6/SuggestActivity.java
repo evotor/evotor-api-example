@@ -2,6 +2,7 @@ package ru.qualitylab.evotor.evotortest6;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,14 +28,18 @@ import ru.evotor.framework.inventory.InventoryApi;
 import ru.evotor.framework.inventory.ProductItem;
 import ru.evotor.framework.receipt.ExtraKey;
 import ru.evotor.framework.receipt.Position;
+import ru.evotor.framework.receipt.Receipt;
+import ru.evotor.framework.receipt.ReceiptApi;
 
 public class SuggestActivity extends IntegrationAppCompatActivity {
+
+    String uuidCoffee = "", prodUuidCoffee = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest);
-        String uuidCoffee = "", prodUuidCoffee = "", uuidHoney = "", prodUuidHoney = "";
+
 
         Button add = (Button) findViewById(R.id.btnAdd);
         Button del = (Button) findViewById(R.id.btnDel);
@@ -47,8 +52,6 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
         if (extras != null) {
             uuidCoffee = extras.getString("uuidCoffee");
             prodUuidCoffee = extras.getString("prodUuidCoffee");
-            uuidHoney = extras.getString("uuidHoney");
-            prodUuidHoney = extras.getString("prodUuidHoney");
         }
 
 
@@ -71,21 +74,26 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
         });
 
 
-        final String finalProdUuidCoffee = prodUuidCoffee;
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String prod = "6c1ca1d9-9f38-42ee-aa63-c4fb046d6a95"; // приправа магги...
+                String position = "";
+                Receipt slip = ReceiptApi.getReceipt(SuggestActivity.this, Receipt.Type.SELL);
+                if (slip != null) {
+                    for (Position item : slip.getPositions()) {
+                        if (item.getProductUuid().equals(prod)) {
+                            position = item.getUuid();
+                            Log.e("", "Product UUID: " + prod + " Position UUID: " + position);
+                        }
+                    }
+                }
+
                 List<IPositionChange> changes = new ArrayList<>();
+                ProductItem.Product item = (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, prod);
                 changes.add(new PositionEdit(
                         Position.Builder.newInstance(
-                                (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, finalProdUuidCoffee),
-                                new BigDecimal(qty.getText().toString())
-                        ).build()
-                ));
-                ProductItem.Product item = (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, finalProdUuidCoffee);
-                /*changes.add(new PositionEdit(
-                        Position.Builder.newInstance(
-                                finalUuidCoffee,
+                                position,
                                 item.getUuid(),
                                 item.getName(),
                                 item.getMeasureName(),
@@ -93,20 +101,9 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
                                 item.getPrice(),
                                 new BigDecimal(qty.getText().toString())
                         ).build()
-                ));*/
-                Set<ExtraKey> set = new HashSet<ExtraKey>();
-                set.add(new ExtraKey(null, null, "Тест EDIT"));
-                changes.add(new PositionEdit(
-                        Position.Builder.newInstance(
-                                finalUuidCoffee,
-                                null,
-                                "Телефон",
-                                "кг",
-                                0,
-                                new BigDecimal(155),
-                                new BigDecimal(qty.getText().toString())
-                        ).setExtraKeys(set).build()
                 ));
+                Set<ExtraKey> set = new HashSet<>();
+                set.add(new ExtraKey(null, null, "Тест EDIT"));
                 JSONObject object = new JSONObject();
                 try {
                     object.put("someSuperKey", "AWESOME EDIT");

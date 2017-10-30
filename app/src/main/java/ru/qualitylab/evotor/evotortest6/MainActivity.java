@@ -39,7 +39,6 @@ import ru.evotor.framework.receipt.Receipt;
 public class MainActivity extends IntegrationAppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,100 +46,92 @@ public class MainActivity extends IntegrationAppCompatActivity {
 
         setTitle(getApplicationContext().getPackageName());
 
-        Button openReceipt = (Button) findViewById(R.id.btnOpenReceipt);
-        Button openPayback = (Button) findViewById(R.id.btnOpenPayback);
-        Button btnPrefs = (Button) findViewById(R.id.btnPrefs);
-        Button btnPrefsC = (Button) findViewById(R.id.btnPrefsC);
-        Button btnUserApi = (Button) findViewById(R.id.btnUserApi);
-        Button btnPayApi = (Button) findViewById(R.id.btnPayAPI);
-        Button btnReceiptApi = (Button) findViewById(R.id.btnReceiptAPI);
-        Button btnOpenAndEmail = (Button) findViewById(R.id.btnOpenAndEmail);
-        Button btnPrint = (Button) findViewById(R.id.btnPrint);
-        Button btnInventoryApi = (Button) findViewById(R.id.btnInventoryApi);
-
-
-
-        btnInventoryApi.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnOpenReceipt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openReceipt();
+            }
+        });
+        findViewById(R.id.btnOpenPayback).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPayback();
+            }
+        });
+        findViewById(R.id.btnPrefs).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(NavigationApi.createIntentForCashReceiptSettings());
+            }
+        });
+        findViewById(R.id.btnPrefsC).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(NavigationApi.createIntentForCashRegisterReport());
+            }
+        });
+        findViewById(R.id.btnUserApi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, UserApiActivity.class));
+            }
+        });
+        findViewById(R.id.btnPayAPI).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PayApiActivity.class));
+            }
+        });
+        findViewById(R.id.btnReceiptAPI).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ReceiptApiActivity.class));
+            }
+        });
+        findViewById(R.id.btnOpenAndEmail).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openReceiptAndEmail();
+            }
+        });
+        findViewById(R.id.btnPrint).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PrintActivity.class));
+            }
+        });
+        findViewById(R.id.btnInventoryApi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, InventoryApiActivity.class));
             }
         });
 
-        btnPrint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, PrintActivity.class));
-            }
-        });
-
-        btnOpenAndEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openReceiptAndEmail();
-            }
-        });
-
-        btnPrefs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(NavigationApi.createIntentForCashReceiptSettings());
-            }
-        });
-
-        btnPrefsC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(NavigationApi.createIntentForCashRegisterReport());
-            }
-        });
-
-        btnUserApi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, UserApiActivity.class));
-            }
-        });
-
-        btnReceiptApi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ReceiptApiActivity.class));
-            }
-        });
-
-        btnPayApi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, PayApiActivity.class));
-            }
-        });
-
-        openReceipt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openReceipt();
-            }
-        });
-
-        openPayback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openPayback();
-            }
-        });
     }
 
+    /*
+    Пример создания и отправки электронного чека
+    на email или телефон в виде СМС
+    Номер телефона указывать в формате 79011234567
+    */
     public void openReceiptAndEmail() {
+        //Создание списка товаров чека
         List<Position> list = new ArrayList<>();
         list.add(
                 Position.Builder.newInstance(
+                        //UUID позиции
                         UUID.randomUUID().toString(),
+                        //UUID товара
                         null,
+                        //Наименование
                         "1234",
+                        //Наименование единицы измерения
                         "12",
+                        //Точность единицы измерения
                         0,
+                        //Цена без скидок
                         new BigDecimal(1000),
+                        //Количество
                         BigDecimal.TEN
                 ).build()
         );
@@ -152,13 +143,16 @@ public class MainActivity extends IntegrationAppCompatActivity {
                         "12",
                         0,
                         new BigDecimal(500),
-                        BigDecimal.ONE
-                ).setPriceWithDiscountPosition(new BigDecimal(300)).build()
+                        BigDecimal.ONE)
+                        //Добавление цены с учетом скидки на позицию. Скидка = price - priceWithDiscountPosition
+                        .setPriceWithDiscountPosition(new BigDecimal(300)).build()
         );
+        //Способ оплаты
         HashMap payments = new HashMap<Payment, BigDecimal>();
         payments.put(new Payment(
                 UUID.randomUUID().toString(),
                 new BigDecimal(9300),
+                //PaymentType задает тип оплаты
                 new PaymentSystem(PaymentType.ELECTRON, "Internet", "12424"),
                 null,
                 null,
@@ -166,7 +160,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         ), new BigDecimal(9300));
         PrintGroup printGroup = new PrintGroup(UUID.randomUUID().toString(),
                 PrintGroup.Type.CASH_RECEIPT, null, null, null, null, false);
-        final Receipt.PrintReceipt printReceipt = new Receipt.PrintReceipt(
+        Receipt.PrintReceipt printReceipt = new Receipt.PrintReceipt(
                 printGroup,
                 list,
                 payments,
@@ -175,8 +169,9 @@ public class MainActivity extends IntegrationAppCompatActivity {
 
         ArrayList<Receipt.PrintReceipt> listDocs = new ArrayList<>();
         listDocs.add(printReceipt);
+        //Добавление скидки на чек
         BigDecimal receiptDiscount = new BigDecimal(1000);
-        new PrintSellReceiptCommand(listDocs, null, "79886023135", "k.kanyuk@quality-lab.ru", receiptDiscount).process(MainActivity.this, new IntegrationManagerCallback() {
+        new PrintSellReceiptCommand(listDocs, null, "79011234567", "example@example.com", receiptDiscount).process(MainActivity.this, new IntegrationManagerCallback() {
             @Override
             public void run(IntegrationManagerFuture integrationManagerFuture) {
                 try {
@@ -198,25 +193,35 @@ public class MainActivity extends IntegrationAppCompatActivity {
     }
 
     public void openReceipt() {
-        String prodName = "Зубочистки";
-        String measureName = "kg";
-        int measurePrecision = 0;
-        BigDecimal price = new BigDecimal(200);
-        BigDecimal quantity = new BigDecimal(1);
-
-        List<PositionAdd> positionAddList = new ArrayList<>();
+        //Дополнительное поле для позиции. В списке наименований расположено под количеством и выделяется синим цветом
         Set<ExtraKey> set = new HashSet<>();
         set.add(new ExtraKey(null, null, "Тест Зубочистки"));
-        positionAddList.add(new PositionAdd(Position.Builder.newInstance(
-                UUID.randomUUID().toString(),
-                null,
-                prodName,
-                measureName,
-                measurePrecision,
-                price,
-                quantity
-        ).setExtraKeys(set).build()));
+        //Создание списка товаров чека
+        List<PositionAdd> positionAddList = new ArrayList<>();
+        positionAddList.add(
+                new PositionAdd(
+                        Position.Builder.newInstance(
+                                //UUID позиции
+                                UUID.randomUUID().toString(),
+                                //UUID товара
+                                null,
+                                //Наименование
+                                "Зубочистки",
+                                //Наименование единицы измерения
+                                "кг",
+                                //Точность единицы измерения
+                                0,
+                                //Цена без скидок
+                                new BigDecimal(200),
+                                //Количество
+                                new BigDecimal(1)
+                                //Добавление цены с учетом скидки на позицию. Скидка = price - priceWithDiscountPosition
+                        ).setPriceWithDiscountPosition(new BigDecimal(300))
+                                .setExtraKeys(set).build()
+                )
+        );
 
+        //Дополнительные поля в чеке для использования в приложении
         JSONObject object = new JSONObject();
         try {
             object.put("someSuperKey", "AWESOME RECEIPT OPEN");
@@ -225,6 +230,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
         }
         SetExtra extra = new SetExtra(object);
 
+        //Открытие чека продажи. Передаются: список наименований, дополнительные поля для приложения
         new OpenSellReceiptCommand(positionAddList, extra).process(MainActivity.this, new IntegrationManagerCallback() {
             @Override
             public void run(IntegrationManagerFuture future) {
@@ -240,34 +246,32 @@ public class MainActivity extends IntegrationAppCompatActivity {
         });
     }
 
+    //Открытие чека возврата
     public void openPayback() {
-        String prodName = "Зубочистки";
-        String measureName = "kg";
-        int measurePrecision = 0;
-        BigDecimal price = new BigDecimal(200);
-        BigDecimal quantity = new BigDecimal(1);
-
+        //Добавление позиций возврата
         List<PositionAdd> positionAddList = new ArrayList<>();
         Set<ExtraKey> set = new HashSet<>();
         set.add(new ExtraKey(null, null, "Тест Возврат Зубочистки"));
-        positionAddList.add(new PositionAdd(Position.Builder.newInstance(
-                UUID.randomUUID().toString(),
-                null,
-                prodName,
-                measureName,
-                measurePrecision,
-                price,
-                quantity
-        ).setExtraKeys(set).build()));
-
+        positionAddList.add(
+                new PositionAdd(
+                        Position.Builder.newInstance(
+                                UUID.randomUUID().toString(),
+                                null,
+                                "Зубочистки",
+                                "кг",
+                                0,
+                                new BigDecimal(200),
+                                new BigDecimal(1)
+                        ).setExtraKeys(set).build()));
         JSONObject object = new JSONObject();
         try {
             object.put("someSuperKey", "AWESOME PAYBACK OPEN");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        SetExtra extra = new SetExtra(object);
 
+        SetExtra extra = new SetExtra(object);
+        //Открытие чека возврата. Передаются: список наименований, дополнительные поля для приложения
         new OpenPaybackReceiptCommand(positionAddList, extra).process(MainActivity.this, new IntegrationManagerCallback() {
             @Override
             public void run(IntegrationManagerFuture future) {
