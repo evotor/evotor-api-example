@@ -25,6 +25,7 @@
             android:value="66998575-ee62-4e87-b191-89f351fdc572" />
 
         <activity android:name=".MainActivity">
+
             <!-- Фон, на котором отображается иконка приложения. -->
             <meta-data
                 android:name="ru.evotor.launcher.BACKGROUND_COLOR"
@@ -54,7 +55,7 @@
         <activity android:name=".PayApiActivity" />
         <activity android:name=".ReceiptApiActivity" />
         <activity android:name=".PrintActivity" />
-        <activity android:name=".MyPaymentActivity"></activity>
+        <activity android:name=".MyPaymentActivity" />
 
         <service
             android:name=".MyIntegrationService"
@@ -75,7 +76,6 @@
                 <action android:name="evo.v2.receipt.sell.beforePositionsEdited" />
             </intent-filter>
         </service>
-
 
         <!-- Получение событий об открытии чека, обновлении базы продуктов или результате изменения чека -->
         <receiver
@@ -216,7 +216,8 @@
         </service>
 
         <!-- Разделение чека продажи на несколько печатных групп -->
-        <!--<service
+        <!--
+        <service
             android:name=".SplitGroupService"
             android:enabled="false"
             android:exported="false"
@@ -225,7 +226,9 @@
             <intent-filter>
                 <action android:name="evo.v2.receipt.sell.printGroup.REQUIRED" />
             </intent-filter>
-        </service>-->
+        </service>
+        -->
+
 
         <!-- Начисление скидки на чек возврата -->
         <service
@@ -238,7 +241,7 @@
                 <action android:name="evo.v2.receipt.sell.receiptDiscount" />
             </intent-filter>
         </service>
-        <!--Печать дополнительной информации в чеке продажи-->
+        <!-- Печать дополнительной информации в чеке продажи -->
         <service
             android:name=".MyPrintService"
             android:enabled="false"
@@ -247,7 +250,7 @@
                 <action android:name="evo.v2.receipt.sell.printExtra.REQUIRED" />
             </intent-filter>
         </service>
-        <!--Печать дополнительной информации в чеке возврата-->
+        <!-- Печать дополнительной информации в чеке возврата -->
         <service
             android:name=".MyPrintPaybackService"
             android:enabled="false"
@@ -257,8 +260,9 @@
             </intent-filter>
         </service>
 
-        <!--Служба для взаимодействия со сторонними платёжными системами-->
-        <!--<service
+        <!-- Служба для взаимодействия со сторонними платёжными системами -->
+        <!--
+        <service
             android:name=".MyPaymentService"
             android:exported="true"
             android:icon="@android:drawable/ic_dialog_map"
@@ -274,7 +278,8 @@
             <intent-filter>
                 <action android:name="evo.v2.receipt.paymentSystem" />
             </intent-filter>
-        </service>-->
+        </service>
+        -->
 
     </application>
 
