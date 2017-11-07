@@ -21,12 +21,14 @@ import ru.evotor.framework.receipt.ReceiptApi;
 import ru.evotor.framework.receipt.ReceiptHeaderTable;
 import ru.evotor.integrations.BarcodeBroadcastReceiver;
 
+/**
+ * Пример работы с ReceiptAPI
+ */
 public class ReceiptApiActivity extends IntegrationAppCompatActivity {
 
     RadioButton rbSell, rbPayback;
     TextView tvLog;
     EditText ed;
-    Button btnReceiptById, btnGetReceiptOpen, btnReceiptBarcode, btnGetHeaders;
     BarcodeBroadcastReceiver mBarcodeBroadcastReceiver;
 
     @Override
@@ -38,12 +40,9 @@ public class ReceiptApiActivity extends IntegrationAppCompatActivity {
         rbPayback = (RadioButton) findViewById(R.id.rbPayback);
         tvLog = (TextView) findViewById(R.id.tvLog);
         ed = (EditText) findViewById(R.id.editText);
-        btnGetReceiptOpen = (Button) findViewById(R.id.btnGetReceiptOpen);
-        btnReceiptById = (Button) findViewById(R.id.btnReceiptById);
-        btnReceiptBarcode = (Button) findViewById(R.id.btnReceiptBarcode);
-        btnGetHeaders = (Button) findViewById(R.id.btnGetHeaders);
 
-        btnGetHeaders.setOnClickListener(new View.OnClickListener() {
+        //Получение заголовков открытого чека
+        findViewById(R.id.btnGetHeaders).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvLog.setText("Headers type:" + (rbSell.isChecked() ? "SELL" : "PAYBACK") + "\n");
@@ -71,7 +70,8 @@ public class ReceiptApiActivity extends IntegrationAppCompatActivity {
             }
         });
 
-        btnReceiptBarcode.setOnClickListener(new View.OnClickListener() {
+        //Поиск товаров в чеке по штрихкоду
+        findViewById(R.id.btnReceiptBarcode).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvLog.setText("Receipt by Barcode\n");
@@ -89,7 +89,8 @@ public class ReceiptApiActivity extends IntegrationAppCompatActivity {
             }
         });
 
-        btnReceiptById.setOnClickListener(new View.OnClickListener() {
+        //Получение чека по его UUID
+        findViewById(R.id.btnReceiptById).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvLog.setText("Receipt by UUID\n");
@@ -112,7 +113,8 @@ public class ReceiptApiActivity extends IntegrationAppCompatActivity {
             }
         });
 
-        btnGetReceiptOpen.setOnClickListener(new View.OnClickListener() {
+        //Получение открытого чека
+        findViewById(R.id.btnGetReceiptOpen).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvLog.setText("Receipt.Type." + (rbSell.isChecked() ? "SELL" : "PAYBACK") + "\n");

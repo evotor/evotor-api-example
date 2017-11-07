@@ -36,7 +36,7 @@ import ru.evotor.framework.receipt.print_extras.PrintExtraPlacePrintGroupSummary
 import ru.evotor.framework.receipt.print_extras.PrintExtraPlacePrintGroupTop;
 
 /**
- * Печать внутри кассового чека продажи
+ * Печать внутри кассового чека возврата
  * В манифесте добавить права <uses-permission android:name="ru.evotor.permission.receipt.printExtra.SET" />
  * В манифесте для сервиса указать:
  * - печать внутри чека возврата <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />

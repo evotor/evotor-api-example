@@ -17,6 +17,9 @@ import ru.evotor.framework.core.action.event.receipt.changes.position.PositionAd
 import ru.evotor.framework.core.action.processor.ActionProcessor;
 import ru.evotor.framework.receipt.Position;
 
+/**
+ * Сервис обработки сообщений терминала
+ */
 public class MyIntegrationService extends IntegrationService {
     @Nullable
     @Override
