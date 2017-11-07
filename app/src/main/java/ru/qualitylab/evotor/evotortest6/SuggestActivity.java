@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import org.json.JSONException;
@@ -33,90 +32,93 @@ import ru.evotor.framework.receipt.ReceiptApi;
 
 public class SuggestActivity extends IntegrationAppCompatActivity {
 
-    String uuidCoffee = "", prodUuidCoffee = "";
+    //Позиция товара переданная сервисом
+//    Position foundPosition;
+    String uuidCoffee, productUuid;
+    EditText qty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest);
 
-
-        Button add = (Button) findViewById(R.id.btnAdd);
-        Button del = (Button) findViewById(R.id.btnDel);
-        Button cancel = (Button) findViewById(R.id.btnCancel);
-        Button edit = (Button) findViewById(R.id.btnEdit);
-        Button btnReceiptApi = (Button) findViewById(R.id.btnReceiptAPI);
-        final EditText qty = (EditText) findViewById(R.id.etQty);
+        qty = (EditText) findViewById(R.id.etQty);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+//            foundPosition = extras.getParcelable("foundPosition");
             uuidCoffee = extras.getString("uuidCoffee");
-            prodUuidCoffee = extras.getString("prodUuidCoffee");
+            productUuid = extras.getString("prodUuid");
         }
 
 
-        btnReceiptApi.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnReceiptAPI).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SuggestActivity.this, ReceiptApiActivity.class));
             }
         });
 
-        final String finalUuidCoffee = uuidCoffee;
-        del.setOnClickListener(new View.OnClickListener() {
+        //Удалим переданную позицию товара
+        findViewById(R.id.btnDel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 List<IPositionChange> changes = new ArrayList<>();
-                changes.add(new PositionRemove(finalUuidCoffee));
+                changes.add(new PositionRemove(uuidCoffee));
                 setIntegrationResult(new BeforePositionsEditedEventResult(changes, null));
                 finish();
             }
         });
 
 
-        edit.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String prod = "6c1ca1d9-9f38-42ee-aa63-c4fb046d6a95"; // приправа магги...
-                String position = "";
+                String prodUuid = "6c1ca1d9-9f38-42ee-aa63-c4fb046d6a95"; // приправа магги...
+                String position = null;
+                //Найдем товар в чеке по его UUID
                 Receipt slip = ReceiptApi.getReceipt(SuggestActivity.this, Receipt.Type.SELL);
                 if (slip != null) {
                     for (Position item : slip.getPositions()) {
-                        if (item.getProductUuid().equals(prod)) {
+                        if (item.getProductUuid().equals(prodUuid)) {
                             position = item.getUuid();
-                            Log.e("", "Product UUID: " + prod + " Position UUID: " + position);
+                            Log.e("", "Product UUID: " + prodUuid + " Position UUID: " + position);
                         }
                     }
                 }
 
-                List<IPositionChange> changes = new ArrayList<>();
-                ProductItem.Product item = (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, prod);
-                changes.add(new PositionEdit(
-                        Position.Builder.newInstance(
-                                position,
-                                item.getUuid(),
-                                item.getName(),
-                                item.getMeasureName(),
-                                item.getMeasurePrecision(),
-                                item.getPrice(),
-                                new BigDecimal(qty.getText().toString())
-                        ).build()
-                ));
-                Set<ExtraKey> set = new HashSet<>();
-                set.add(new ExtraKey(null, null, "Тест EDIT"));
-                JSONObject object = new JSONObject();
-                try {
-                    object.put("someSuperKey", "AWESOME EDIT");
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if (position != null) {
+                    //Изменим количество товара в чеке
+                    List<IPositionChange> changes = new ArrayList<>();
+                    ProductItem.Product item = (ProductItem.Product) InventoryApi.getProductByUuid(SuggestActivity.this, prodUuid);
+                    changes.add(new PositionEdit(
+                            Position.Builder.newInstance(
+                                    position,
+                                    item.getUuid(),
+                                    item.getName(),
+                                    item.getMeasureName(),
+                                    item.getMeasurePrecision(),
+                                    item.getPrice(),
+                                    new BigDecimal(qty.getText().toString())
+                            ).build()
+                    ));
+                    Set<ExtraKey> set = new HashSet<>();
+                    set.add(new ExtraKey(null, null, "Тест EDIT"));
+                    JSONObject object = new JSONObject();
+                    try {
+                        object.put("someSuperKey", "AWESOME EDIT");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    SetExtra extra = new SetExtra(object);
+                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, extra));
                 }
-                SetExtra extra = new SetExtra(object);
-                setIntegrationResult(new BeforePositionsEditedEventResult(changes, extra));
                 finish();
             }
         });
 
-        add.setOnClickListener(new View.OnClickListener() {
+        //Добавим новый товар к чеку
+        findViewById(R.id.btnAdd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 List<IPositionChange> changes = new ArrayList<>();
@@ -145,7 +147,7 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

@@ -26,13 +26,16 @@ public class MyIntegrationService extends IntegrationService {
             @Override
             public void call(@NonNull String action, @NonNull BeforePositionsEditedEvent event, @NonNull Callback callback) {
                 boolean hasCoffee = false;
-                String uuidCoffee = "", prodUuidCoffee = "";
+                Position foundPosition = null;
+                String uuid = null, productUuid = null;
+                //Просматриваем все изменения в чеке
                 for (IPositionChange change : event.getChanges()) {
+                    //Если добавлен необходимый нам товар в чек - сохраним позицию товара
                     if (change instanceof PositionAdd) {
-                        Position position = ((PositionAdd) change).getPosition();
-                        if (position.getName().toLowerCase().contains("кофе")) {
-                            uuidCoffee = position.getUuid();
-                            prodUuidCoffee = position.getProductUuid();
+                        foundPosition = ((PositionAdd) change).getPosition();
+                        if (foundPosition.getName().toLowerCase().contains("кофе")) {
+                            uuid = foundPosition.getUuid();
+                            productUuid = foundPosition.getProductUuid();
                             hasCoffee = true;
                             break;
                         }
@@ -41,9 +44,11 @@ public class MyIntegrationService extends IntegrationService {
 
                 try {
                     if (hasCoffee) {
-                        Intent intent = new Intent(getApplicationContext(), SuggestActivity.class);
-                        intent.putExtra("uuidCoffee", uuidCoffee);
-                        intent.putExtra("prodUuidCoffee", prodUuidCoffee);
+                        //Передадим полученные данные о товаре в Activity
+                        Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+//                        intent.putExtra("foundPosition", foundPosition);
+                        intent.putExtra("uuid", uuid);
+                        intent.putExtra("productUuid", productUuid);
                         callback.startActivity(intent);
                     } else {
                         callback.skip();
