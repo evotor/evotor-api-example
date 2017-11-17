@@ -61,23 +61,27 @@ public class InventoryApiActivity extends IntegrationAppCompatActivity {
                 tvLog.setText("Поиск товара по идентификатору\n");
                 StringBuffer sb = new StringBuffer();
                 ProductItem.Product prod = (ProductItem.Product) InventoryApi.getProductByUuid(InventoryApiActivity.this, etSearch.getText().toString());
-                sb.append("Code: ")
-                        .append(prod.getCode())
-                        .append("\nName: ")
-                        .append(prod.getName())
-                        .append("\nUUID: ")
-                        .append(prod.getUuid());
-                sb.append("===\n")
-                        .append("Description: ")
-                        .append(prod.getDescription())
-                        .append("\nMeasureName: ")
-                        .append(prod.getMeasureName())
-                        .append("\nPrice: ")
-                        .append(prod.getPrice().toString())
-                        .append("\nQuantity: ")
-                        .append(prod.getQuantity())
-                        .append("\nType: ")
-                        .append(prod.getType().toString());
+                if (prod != null) {
+                    sb.append("Code: ")
+                            .append(prod.getCode())
+                            .append("\nName: ")
+                            .append(prod.getName())
+                            .append("\nUUID: ")
+                            .append(prod.getUuid());
+                    sb.append("===\n")
+                            .append("Description: ")
+                            .append(prod.getDescription())
+                            .append("\nMeasureName: ")
+                            .append(prod.getMeasureName())
+                            .append("\nPrice: ")
+                            .append(prod.getPrice().toString())
+                            .append("\nQuantity: ")
+                            .append(prod.getQuantity())
+                            .append("\nType: ")
+                            .append(prod.getType().toString());
+                } else {
+                    sb.append("Not found");
+                }
                 tvLog.setText(sb.toString());
             }
         });
