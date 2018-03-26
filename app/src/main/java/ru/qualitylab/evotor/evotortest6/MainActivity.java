@@ -164,7 +164,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                 printGroup,
                 list,
                 payments,
-                new HashMap<Payment, BigDecimal>()
+                new HashMap<Payment, BigDecimal>(), new HashMap<String, BigDecimal>()
         );
 
         ArrayList<Receipt.PrintReceipt> listDocs = new ArrayList<>();
