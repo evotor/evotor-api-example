@@ -11,6 +11,8 @@
     <!-- Поддержка сторонней платёжной системы -->
     <uses-permission android:name="ru.evotor.permission.PAYMENT_SYSTEM" />
 
+    <uses-permission android:name="ru.evotor.pushnotifications.PUSH_RECEIVE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +25,14 @@
         <meta-data
             android:name="app_uuid"
             android:value="66998575-ee62-4e87-b191-89f351fdc572" />
+
+        <receiver
+            android:name=".PushReceiver"
+            android:permission="ru.evotor.pushnotifications.PUSH_SENDER">
+            <intent-filter>
+                <action android:name="ru.evotor.pushnotifications.PUSH_RECEIVED_EVENT" />
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".MainActivity">
 

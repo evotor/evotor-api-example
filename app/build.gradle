@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    mavenLocal()
+    google()
+    maven { url 'https://jitpack.io' }
+}
+
+
 android {
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
@@ -27,6 +34,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.github.evotor:integration-library:v0.4.+'
+    compile 'com.github.evotor:push-notifications:v0.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
