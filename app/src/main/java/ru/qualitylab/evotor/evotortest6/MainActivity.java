@@ -156,6 +156,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                 new PaymentSystem(PaymentType.ELECTRON, "Internet", "12424"),
                 null,
                 null,
+                null,
                 null
         ), new BigDecimal(9300));
         PrintGroup printGroup = new PrintGroup(UUID.randomUUID().toString(),
