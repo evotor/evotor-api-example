@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.thedeanda:lorem:2.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thedeanda/lorem/2.1/b8e8864853e1c597b47e5b5d2d9f2b3846cb0837/lorem-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thedeanda/lorem/2.1/196a8f16957509cbbda484587b2d0c2f1e71c046/lorem-2.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thedeanda/lorem/2.1/77d0ed6559e1d0159b3d138b48cbaa5f2785be2a/lorem-2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

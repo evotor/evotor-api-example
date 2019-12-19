@@ -3,7 +3,6 @@ package ru.qualitylab.evotor.evotortest6;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.evotor.framework.Cursor;
 import ru.evotor.framework.core.IntegrationAppCompatActivity;
 import ru.evotor.framework.receipt.ExtraKey;
 import ru.evotor.framework.receipt.Payment;
@@ -20,6 +18,7 @@ import ru.evotor.framework.receipt.Receipt;
 import ru.evotor.framework.receipt.ReceiptApi;
 import ru.evotor.framework.receipt.ReceiptHeaderTable;
 import ru.evotor.integrations.BarcodeBroadcastReceiver;
+import ru.evotor.query.Cursor;
 
 /**
  * Пример работы с ReceiptAPI
