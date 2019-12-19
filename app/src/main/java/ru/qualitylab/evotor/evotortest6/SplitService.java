@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ru.evotor.framework.component.PaymentPerformer;
 import ru.evotor.framework.core.IntegrationService;
 import ru.evotor.framework.core.action.event.receipt.changes.position.SetExtra;
 import ru.evotor.framework.core.action.event.receipt.changes.position.SetPrintGroup;
@@ -23,6 +24,8 @@ import ru.evotor.framework.core.action.event.receipt.print_group.PrintGroupRequi
 import ru.evotor.framework.core.action.event.receipt.print_group.PrintGroupRequiredEventResult;
 import ru.evotor.framework.core.action.processor.ActionProcessor;
 import ru.evotor.framework.payment.PaymentPurpose;
+import ru.evotor.framework.payment.PaymentSystem;
+import ru.evotor.framework.payment.PaymentType;
 import ru.evotor.framework.receipt.PrintGroup;
 import ru.evotor.framework.receipt.Purchaser;
 import ru.evotor.framework.receipt.PurchaserType;
@@ -38,57 +41,42 @@ public class SplitService extends IntegrationService {
     @Nullable
     @Override
     protected Map<String, ActionProcessor> createProcessors() {
-        //Создаём реквизиты покупателей, которые участвуют в приобретении товара.
-        Purchaser firstLegalEntity = new Purchaser(
-                //Наименование покупателя, например, название организации. Данные сохраняются в теге 1227 фискального документа.
-                "Legal Entity #1",
-                //Номер документа покупателя, например, ИНН или номер паспорта иностранного гражданина. Данные сохраняются в теге 1228 фискального документа.
-                "606053449439",
-                //Тип покупателя, например, юр. лицо. Не сохраняется в фискальном документе.
-                PurchaserType.LEGAL_ENTITY);
+        /*
+        Указываем установленное на смарт-терминале приложение или его компонент, которое исполнит платежи.
+        Исполнителя платежа также можно указать внутри метода call следущим образом: event.getPaymentPurpose().getPaymentPerformer();
+         */
+        PaymentPerformer paymentPerformerApplicationOrComponent = new PaymentPerformer(
+                //Объект с описанием платёжной системы, которое использует приложение, исполняющее платёж.
+                new PaymentSystem(PaymentType.ELECTRON, "Some description", "Payment system ID"),
+                //Пакет, в котором расположен компонент, исполняющий платёж.
+                "ru.evotor.paymentapp",
+                //Название компонента, исполняющего платёж.
+                "ComponentName",
+                //Идентификатор уникальный идентификатор приложения, исполняющего платёж.
+                "App identifier",
+                //Название приложения, исполняющего платёж
+                "App name");
 
-        //Создаём печатные группы (чеки), для каждого покупателя.
-        PrintGroup firstReceipt = new PrintGroup(
-                //Идентифискатор печатной группы (чека покупателя).
-                "123456789qwertyu",
-                //Тип чека, например, кассовый чек.
-                PrintGroup.Type.CASH_RECEIPT,
-                //Наименование покупателя.
-                "OOO Vector",
-                //ИНН покупателя.
-                "606053449439",
-                //Адрес покупателя.
-                "12, 3k2, Dark street, Nsk, Russia",
-                /*
-                Система налогообложения, которая применялась при расчёте.
-                Смарт-терминал печатает чеки с указанной системой налогообложения, если она попадает в список разрешённых систем. В противном случае смарт-терминал выбирает систему налогообложения, заданную по умолчанию.
-                */
-                TaxationSystem.SIMPLIFIED_INCOME,
-                //Указывает на необходимость печати чека.
-                false,
-                //Реквизиты покупателя.
-                firstLegalEntity);
+        //Создаём платежи для нескольких юридических лиц и добавляем их в список.
+        PaymentPurpose firstLegalEntityPayment = new PaymentPurpose(
+                //Идентификатор платежа.
+                "First payment identifier",
+                //Идентификатор платёжной системы. Устаревший параметр.
+                "Deprecated PaymentSystemId or Null",
+                //Установленное на смарт-терминале приложение или его компонент, выполняющее платёж.
+                paymentPerformerApplicationOrComponent,
+                //Сумма платежа.
+                new BigDecimal(50000),
+                "Payment account identifier",
+                //Сообщение для пользователя.
+                "Your payment has proceeded successfully.");
 
-        //Списки идентификаторов позиций каждого из покупателей.
-        List<String> firstPurchaserpositions = new ArrayList<>();
-        firstPurchaserpositions.add("241e9344-ef50-46bc-9ce2-443c38b649e5");
+        final List<PaymentPurpose> listOfAllPayments = Arrays.asList(firstLegalEntityPayment);
 
-
-
-        //Списки идентификаторов платежей каждого из покупателей.
-        List<String> firstPaymentPurposeId = new ArrayList<>();
-        firstPaymentPurposeId.add("First purchaser payment ID");
-
-
-        //Чеки каждого из покупателей.
-        SetPrintGroup firstPrintGroup = new SetPrintGroup(firstReceipt, firstPaymentPurposeId, firstPurchaserpositions);
-
-        final List<SetPrintGroup> setAllPurchaserReceipts = Arrays.asList(firstPrintGroup);
-
-        //Создаём обработчик события печати чеков.
-        PrintGroupRequiredEventProcessor eventProcessor = new PrintGroupRequiredEventProcessor() {
+        //Создаём обработчик события выбора оплаты.
+        PaymentSelectedEventProcessor yourEventProcessor = new PaymentSelectedEventProcessor() {
             @Override
-            public void call(@NonNull String action, @NonNull PrintGroupRequiredEvent event, @NonNull Callback callback) {
+            public void call(@NonNull String action, @NonNull PaymentSelectedEvent event, @NonNull Callback callback) {
                 /*
                 Все методы функции обратного вызова могут вернуть исключение RemoteException, которое необходимо правильно обработать.
                 Например, с помощью конструкции try {} catch () {}.
@@ -98,20 +86,19 @@ public class SplitService extends IntegrationService {
                     Вы также можете воспользоваться другими методами функции обратного вызова.
                     Например, запустить операцию с помощью startActivity(Intent intent) или отреагировть на ошибку с помощью одного из методов onError().
                      */
-                    callback.onResult(new PrintGroupRequiredEventResult(
+                    callback.onResult(new PaymentSelectedEventResult(
                             //Добавляем дополнительные данные в чек.
                             new SetExtra(null),
-                            setAllPurchaserReceipts));
+                            listOfAllPayments));
                 } catch (RemoteException exception) {
                     exception.printStackTrace();
                 }
-
             }
         };
 
         //Создаём и возвращаем в смарт-терминал результат обработки события в виде коллекиции пар "Событие":"Обработчик события".
         Map<String, ActionProcessor> eventProcessingResult = new HashMap<>();
-        eventProcessingResult.put(PrintGroupRequiredEvent.NAME_SELL_RECEIPT, eventProcessor);
+        eventProcessingResult.put(PaymentSelectedEvent.NAME_SELL_RECEIPT, yourEventProcessor);
 
         return eventProcessingResult;
     }
