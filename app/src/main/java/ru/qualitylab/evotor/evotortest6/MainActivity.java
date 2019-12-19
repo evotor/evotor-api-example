@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import ru.evotor.framework.component.PaymentPerformer;
 import ru.evotor.framework.core.IntegrationAppCompatActivity;
 import ru.evotor.framework.core.IntegrationException;
 import ru.evotor.framework.core.IntegrationManagerCallback;
@@ -151,16 +152,21 @@ public class MainActivity extends IntegrationAppCompatActivity {
         HashMap payments = new HashMap<Payment, BigDecimal>();
         payments.put(new Payment(
                 UUID.randomUUID().toString(),
-                new BigDecimal(9300),
-                //PaymentType задает тип оплаты
-                new PaymentSystem(PaymentType.ELECTRON, "Internet", "12424"),
+                new BigDecimal(9300 ),
                 null,
+                new PaymentPerformer(
+                        new PaymentSystem(PaymentType.ELECTRON, "Internet", "12424"),
+                        "имя пакета",
+                        "название компонента",
+                        "app_uuid",
+                        "appName"
+                ),
                 null,
                 null,
                 null
-        ), new BigDecimal(9300));
+        ), new BigDecimal(9300 ));
         PrintGroup printGroup = new PrintGroup(UUID.randomUUID().toString(),
-                PrintGroup.Type.CASH_RECEIPT, null, null, null, null, false);
+                PrintGroup.Type.CASH_RECEIPT, null, null, null, null, false, null);
         Receipt.PrintReceipt printReceipt = new Receipt.PrintReceipt(
                 printGroup,
                 list,
