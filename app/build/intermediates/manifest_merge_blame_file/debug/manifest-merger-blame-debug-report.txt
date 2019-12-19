@@ -1,0 +1,480 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ru.qualitylab.evotor.evotortest6"
+4    android:versionCode="6"
+5    android:versionName="6" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+10
+11    <!-- Разрешение на использование сканера штрихкодов -->
+12    <uses-permission android:name="ru.evotor.devices.SCANNER_RECEIVER" />
+12-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:6:5-74
+12-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:6:22-71
+13    <!-- Разрешение на печать своих данных в чеке -->
+14    <uses-permission android:name="ru.evotor.permission.receipt.printExtra.SET" />
+14-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:8:5-83
+14-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:8:22-80
+15    <!-- Разрешение на передачу чека по email или на телефон -->
+16    <uses-permission android:name="ru.evotor.permission.receipt.print.INTERNET_RECEIPT" />
+16-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:10:5-91
+16-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:10:22-88
+17    <!-- Поддержка сторонней платёжной системы -->
+18    <uses-permission android:name="ru.evotor.permission.PAYMENT_SYSTEM" />
+18-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:12:5-75
+18-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:12:22-72
+19
+20    <application
+20-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:14:5-284:19
+21        android:allowBackup="true"
+21-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:15:9-35
+22        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+22-->[com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+23        android:debuggable="true"
+24        android:icon="@mipmap/ic_launcher"
+24-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:16:9-43
+25        android:label="@string/app_name"
+25-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:17:9-41
+26        android:roundIcon="@mipmap/ic_launcher"
+26-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:18:9-48
+27        android:supportsRtl="true"
+27-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:19:9-35
+28        android:testOnly="true"
+29        android:theme="@style/AppTheme" >
+29-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:20:9-40
+30
+31        <!-- UUID номер приложения в системе Эвотор. Вкладка APK приложения в ЛК -->
+32        <meta-data
+32-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:23:9-25:68
+33            android:name="app_uuid"
+33-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:24:13-36
+34            android:value="66998575-ee62-4e87-b191-89f351fdc572" />
+34-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:25:13-65
+35
+36        <activity android:name="ru.qualitylab.evotor.evotortest6.MainActivity" >
+36-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:27:9-50:20
+36-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:27:19-47
+37
+38            <!-- Фон, на котором отображается иконка приложения. -->
+39            <meta-data
+39-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:30:13-32:43
+40                android:name="ru.evotor.launcher.BACKGROUND_COLOR"
+40-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:31:17-67
+41                android:value="#133788" />
+41-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:32:17-40
+42
+43            <!-- Чтобы заменить кнопку Продажа в интерфейсе терминала -->
+44            <intent-filter>
+44-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:35:13-40:29
+45                <action android:name="ru.evotor.intent.action.SELL_MAIN" />
+45-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:36:17-76
+45-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:36:25-73
+46
+47                <category android:name="android.intent.category.EVOTOR" />
+47-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:38:17-75
+47-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:38:27-72
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:39:17-77
+48-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:39:27-74
+49            </intent-filter>
+50
+51            <!-- Чтобы заменить кнопку Продажа в интерфейсе терминала -->
+52            <!--
+53                        <intent-filter>
+54                            &lt;!&ndash;Иконка приложения на главном экране смарт-терминала&ndash;&gt;
+55                            <action android:name="android.intent.action.MAIN" />
+56                            <category android:name="android.intent.category.EVOTOR" />
+57                        </intent-filter>
+58            -->
+59        </activity>
+60        <activity android:name="ru.qualitylab.evotor.evotortest6.SuggestActivity" />
+60-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:51:9-53
+60-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:51:19-50
+61        <activity android:name="ru.qualitylab.evotor.evotortest6.EditActivity" />
+61-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:52:9-50
+61-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:52:19-47
+62        <activity android:name="ru.qualitylab.evotor.evotortest6.UserApiActivity" />
+62-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:53:9-53
+62-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:53:19-50
+63        <activity android:name="ru.qualitylab.evotor.evotortest6.InventoryApiActivity" />
+63-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:54:9-58
+63-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:54:19-55
+64        <activity android:name="ru.qualitylab.evotor.evotortest6.PayApiActivity" />
+64-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:55:9-52
+64-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:55:19-49
+65        <activity android:name="ru.qualitylab.evotor.evotortest6.ReceiptApiActivity" />
+65-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:56:9-56
+65-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:56:19-53
+66        <activity android:name="ru.qualitylab.evotor.evotortest6.PrintActivity" />
+66-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:57:9-51
+66-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:57:19-48
+67        <activity android:name="ru.qualitylab.evotor.evotortest6.MyPaymentActivity" />
+67-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:58:9-55
+67-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:58:19-52
+68
+69        <service
+69-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:60:9-78:19
+70            android:name="ru.qualitylab.evotor.evotortest6.MyIntegrationService"
+70-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:61:13-49
+71            android:enabled="true"
+71-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:62:13-35
+72            android:exported="true"
+72-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:63:13-36
+73            android:icon="@mipmap/ic_launcher"
+73-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:64:13-47
+74            android:label="Suggest me!" >
+74-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:65:13-40
+75            <meta-data
+75-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:66:13-68:43
+76                android:name="ru.evotor.sales_screen.BACKGROUND_COLOR"
+76-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:67:17-71
+77                android:value="#133788" />
+77-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:68:17-40
+78            <!-- <intent-filter android:priority="20"> -->
+79            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+80            <!-- <action android:name="evo.v2.receipt.payback.receiptDiscount" /> -->
+81            <!-- </intent-filter> -->
+82            <intent-filter android:priority="20" >
+82-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:73:13-77:29
+82-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:73:28-49
+83                <category android:name="android.intent.category.DEFAULT" />
+83-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+83-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+84
+85                <action android:name="evo.v2.receipt.sell.beforePositionsEdited" />
+85-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:76:17-84
+85-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:76:25-81
+86            </intent-filter>
+87        </service>
+88
+89        <!-- Получение событий об открытии чека, обновлении базы продуктов или результате изменения чека -->
+90        <receiver
+90-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:81:9-204:20
+91            android:name="ru.qualitylab.evotor.evotortest6.GlobalReceiver"
+91-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:82:13-43
+92            android:enabled="true"
+92-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:83:13-35
+93            android:exported="true" >
+93-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:84:13-36
+94
+95            <!-- Чек продажи был успешно открыт -->
+96            <intent-filter>
+96-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:87:13-91:29
+97                <action android:name="evotor.intent.action.receipt.sell.OPENED" />
+97-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:88:17-83
+97-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:88:25-80
+98
+99                <category android:name="android.intent.category.DEFAULT" />
+99-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+99-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+100            </intent-filter>
+101
+102            <!-- Чек возврата был успешно открыт -->
+103            <intent-filter>
+103-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:94:13-98:29
+104                <action android:name="evotor.intent.action.receipt.payback.OPENED" />
+104-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:95:17-86
+104-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:95:25-83
+105
+106                <category android:name="android.intent.category.DEFAULT" />
+106-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+106-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+107            </intent-filter>
+108
+109            <!-- Позиция была добавлена в чек продажи -->
+110            <intent-filter>
+110-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:101:13-105:29
+111                <action android:name="evotor.intent.action.receipt.sell.POSITION_ADDED" />
+111-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:102:17-91
+111-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:102:25-88
+112
+113                <category android:name="android.intent.category.DEFAULT" />
+113-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+113-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+114            </intent-filter>
+115
+116            <!-- Позиция была добавлена в чек возврата -->
+117            <intent-filter>
+117-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:108:13-112:29
+118                <action android:name="evotor.intent.action.receipt.payback.POSITION_ADDED" />
+118-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:109:17-94
+118-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:109:25-91
+119
+120                <category android:name="android.intent.category.DEFAULT" />
+120-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+120-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+121            </intent-filter>
+122
+123            <!-- Позиция была отредактирована в чеке продажи -->
+124            <intent-filter>
+124-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:115:13-119:29
+125                <action android:name="evotor.intent.action.receipt.sell.POSITION_EDITED" />
+125-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:116:17-92
+125-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:116:25-89
+126
+127                <category android:name="android.intent.category.DEFAULT" />
+127-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+127-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+128            </intent-filter>
+129
+130            <!-- Позиция была отредактирована в чеке возврата -->
+131            <intent-filter>
+131-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:122:13-126:29
+132                <action android:name="evotor.intent.action.receipt.payback.POSITION_EDITED" />
+132-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:123:17-95
+132-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:123:25-92
+133
+134                <category android:name="android.intent.category.DEFAULT" />
+134-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+134-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+135            </intent-filter>
+136
+137            <!-- Позиция была удалена из чека продажи -->
+138            <intent-filter>
+138-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:129:13-133:29
+139                <action android:name="evotor.intent.action.receipt.sell.POSITION_REMOVED" />
+139-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:130:17-93
+139-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:130:25-90
+140
+141                <category android:name="android.intent.category.DEFAULT" />
+141-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+141-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+142            </intent-filter>
+143
+144            <!-- Позиция была удалена из чека возврата -->
+145            <intent-filter>
+145-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:136:13-140:29
+146                <action android:name="evotor.intent.action.receipt.payback.POSITION_REMOVED" />
+146-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:137:17-96
+146-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:137:25-93
+147
+148                <category android:name="android.intent.category.DEFAULT" />
+148-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+148-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+149            </intent-filter>
+150
+151            <!-- Обновление базы товаров -->
+152            <intent-filter>
+152-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:143:13-147:29
+153                <action android:name="evotor.intent.action.inventory.PRODUCTS_UPDATED" />
+153-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:144:17-90
+153-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:144:25-87
+154
+155                <category android:name="android.intent.category.DEFAULT" />
+155-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+155-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+156            </intent-filter>
+157
+158            <!-- Чек продажи был очищен -->
+159            <intent-filter>
+159-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:150:13-154:29
+160                <action android:name="evotor.intent.action.receipt.sell.CLEARED" />
+160-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:151:17-84
+160-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:151:25-81
+161
+162                <category android:name="android.intent.category.DEFAULT" />
+162-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+162-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+163            </intent-filter>
+164
+165            <!-- Чек возврата был очищен -->
+166            <intent-filter>
+166-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:157:13-161:29
+167                <action android:name="evotor.intent.action.receipt.payback.CLEARED" />
+167-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:158:17-87
+167-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:158:25-84
+168
+169                <category android:name="android.intent.category.DEFAULT" />
+169-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+169-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+170            </intent-filter>
+171
+172            <!-- Чек продажи был успешно закрыт -->
+173            <intent-filter>
+173-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:164:13-168:29
+174                <action android:name="evotor.intent.action.receipt.sell.RECEIPT_CLOSED" />
+174-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:165:17-91
+174-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:165:25-88
+175
+176                <category android:name="android.intent.category.DEFAULT" />
+176-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+176-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+177            </intent-filter>
+178
+179            <!-- Чек возврата был успешно закрыт -->
+180            <intent-filter>
+180-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:171:13-175:29
+181                <action android:name="evotor.intent.action.receipt.payback.RECEIPT_CLOSED" />
+181-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:172:17-94
+181-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:172:25-91
+182
+183                <category android:name="android.intent.category.DEFAULT" />
+183-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+183-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+184            </intent-filter>
+185
+186            <!-- Внесение денег -->
+187            <intent-filter>
+187-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:178:13-182:29
+188                <action android:name="evotor.intent.action.cashOperation.IN" />
+188-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:179:17-80
+188-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:179:25-77
+189
+190                <category android:name="android.intent.category.DEFAULT" />
+190-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+190-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+191            </intent-filter>
+192
+193            <!-- Выплата денег -->
+194            <intent-filter>
+194-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:185:13-189:29
+195                <action android:name="evotor.intent.action.cashOperation.CASH_OUT" />
+195-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:186:17-86
+195-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:186:25-83
+196
+197                <category android:name="android.intent.category.DEFAULT" />
+197-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+197-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+198            </intent-filter>
+199
+200            <!-- Открытие карточки товара\товарной группы -->
+201            <intent-filter>
+201-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:192:13-196:29
+202                <action android:name="evotor.intent.action.inventory.CARD_OPEN" />
+202-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:193:17-83
+202-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:193:25-80
+203
+204                <category android:name="android.intent.category.DEFAULT" />
+204-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+204-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+205            </intent-filter>
+206
+207            <!-- Открытие ящика для денег -->
+208            <intent-filter>
+208-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:199:13-203:29
+209                <action android:name="evotor.intent.action.cashDrawer.OPEN" />
+209-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:200:17-79
+209-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:200:25-76
+210
+211                <category android:name="android.intent.category.DEFAULT" />
+211-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+211-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+212            </intent-filter>
+213        </receiver>
+214
+215        <!-- Разделение платежей в чеке продажи -->
+216        <service
+216-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:207:9-216:19
+217            android:name="ru.qualitylab.evotor.evotortest6.SplitService"
+217-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:208:13-41
+218            android:enabled="true"
+218-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:209:13-35
+219            android:exported="false"
+219-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:210:13-37
+220            android:icon="@mipmap/ic_launcher"
+220-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:211:13-47
+221            android:label="Разделение платежей в чеке" >
+221-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:212:13-55
+222            <intent-filter>
+222-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:213:13-215:29
+223                <action android:name="evo.v2.receipt.sell.payment.SELECTED" />
+223-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:214:17-79
+223-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:214:25-76
+224            </intent-filter>
+225        </service>
+226
+227        <!-- Разделение чека продажи на несколько печатных групп -->
+228        <!--
+229        <service
+230            android:name=".SplitGroupService"
+231            android:enabled="false"
+232            android:exported="false"
+233            android:icon="@mipmap/ic_launcher"
+234            android:label="Разделение платежей в чеке на группы">
+235            <intent-filter>
+236                <action android:name="evo.v2.receipt.sell.printGroup.REQUIRED" />
+237            </intent-filter>
+238        </service>
+239        -->
+240
+241
+242        <!-- Начисление скидки на чек возврата -->
+243        <service
+243-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:234:9-243:19
+244            android:name="ru.qualitylab.evotor.evotortest6.MyDiscountService"
+244-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:235:13-46
+245            android:enabled="true"
+245-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:236:13-35
+246            android:exported="true"
+246-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:237:13-36
+247            android:icon="@mipmap/ic_launcher"
+247-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:238:13-47
+248            android:label="Скидка в чеке" >
+248-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:239:13-42
+249            <intent-filter>
+249-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:240:13-242:29
+250                <action android:name="evo.v2.receipt.sell.receiptDiscount" />
+250-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:241:17-78
+250-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:241:25-75
+251            </intent-filter>
+252        </service>
+253        <!-- Печать дополнительной информации в чеке продажи -->
+254        <service
+254-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:245:9-252:19
+255            android:name="ru.qualitylab.evotor.evotortest6.MyPrintService"
+255-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:246:13-43
+256            android:enabled="false"
+256-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:247:13-36
+257            android:exported="true" >
+257-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:248:13-36
+258            <intent-filter>
+258-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:249:13-251:29
+259                <action android:name="evo.v2.receipt.sell.printExtra.REQUIRED" />
+259-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:250:17-82
+259-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:250:25-79
+260            </intent-filter>
+261        </service>
+262        <!-- Печать дополнительной информации в чеке возврата -->
+263        <service
+263-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:254:9-261:19
+264            android:name="ru.qualitylab.evotor.evotortest6.MyPrintPaybackService"
+264-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:255:13-50
+265            android:enabled="false"
+265-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:256:13-36
+266            android:exported="true" >
+266-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:257:13-36
+267            <intent-filter>
+267-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:258:13-260:29
+268                <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
+268-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:259:17-85
+268-->C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:259:25-82
+269            </intent-filter>
+270        </service>
+271
+272        <!-- Служба для взаимодействия со сторонними платёжными системами -->
+273        <!--
+274        <service
+275            android:name=".MyPaymentService"
+276            android:exported="true"
+277            android:icon="@android:drawable/ic_dialog_map"
+278            android:label="Другая платежная система">
+279            &lt;!&ndash;Цвет кнопки платёжной системы&ndash;&gt;
+280            <meta-data
+281                android:name="ru.evotor.sales_screen.BACKGROUND_COLOR"
+282                android:value="@android:color/holo_green_light" />
+283            <meta-data
+284                android:name="ru.evotor.paymentSystem.PAYMENT_SYSTEM_ID"
+285                android:value="${applicationId}" />
+286
+287            <intent-filter>
+288                <action android:name="evo.v2.receipt.paymentSystem" />
+289            </intent-filter>
+290        </service>
+291        -->
+292
+293    </application>
+294
+295</manifest>

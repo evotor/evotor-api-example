@@ -1,0 +1,447 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+MERGED from [com.github.evotor:integration-library:v0.4.40] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2b5572a82c93ec98ad2aa6a9fba0ea73\integration-library-v0.4.40\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2762df556eb00935af44a9cef289bcc5\design-28.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2ad9bfadafd430f8dbad1412b3cf8d16\appcompat-v7-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\88180c2d9df321ed403965b1f5904015\constraint-layout-1.1.3\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.evotor:push-notifications:v0.2.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\145a90f0baa41e15922d70f45864d583\push-notifications-v0.2.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.github.evotor:query-api:1.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a0d106e64988fba151c277e5deca313a\query-api-1.0.0\AndroidManifest.xml:2:1-16:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2c2719b22890890f5ae6a51c577cf1e6\support-fragment-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\07ec705aed5324b71d72c4292188ba58\animated-vector-drawable-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\cbc9fded8b0ca2dc6b55abe24b8dd624\recyclerview-v7-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\1334fe890717dc3473dc186f28449ae9\support-core-ui-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\51316cf1e90ac9ba1040508849baa486\support-core-utils-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\eef6aeb86cd4abc591f340e9ebffbc25\support-vector-drawable-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\c5d3c2766ada7a1573158f87d282c560\transition-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\ad62f407f0f82b0a54b4d08f147faaa7\loader-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\9e47cc7119ced64ae9076bee16f6f474\viewpager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\383ad2c48ccebde577332ae7ce906c52\coordinatorlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\aabad928b9dfc3bb4f99a8e919d7ca2a\drawerlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\d777efb7f005f4061664eb152e4e4155\slidingpanelayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\378cad5251b7bf9290fb2bb3c5781307\customview-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a7cb32bf2478ccd8ed752b2b8a998b8f\swiperefreshlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\11902811a1e20f50ecac97c485be82b1\asynclayoutinflater-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f993d148e999fdf956a4937ae88c6ee1\versionedparcelable-28.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\16e10458eb3d86dce547be2d4dce65a9\cursoradapter-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\67b0ea41bb31f1300bd726681636eb0e\cardview-v7-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a4cce78b48541915b29a77ed3286103c\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\d2514de441a98c98e63d23342e697e1c\documentfile-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\587d4b4ba2bee95fa70ebde7fdef163e\localbroadcastmanager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\6649028815494b2aeabe1bc5c2405c56\print-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\5e2b7336b65fd01a7d1759b63ce95e82\viewmodel-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\5e443312ff8e9912636de42e05adc2a8\interpolator-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\bde0a02c7eaeb68bbbbe9daba8b5a4d3\livedata-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\80a25cd447b6f67296c411c5c16059bb\livedata-core-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a9f3caa807bbac705342bf916bae7e9b\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+	package
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:3:5-47
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:1-286:12
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#ru.evotor.devices.SCANNER_RECEIVER
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:6:5-74
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:6:22-71
+uses-permission#ru.evotor.permission.receipt.printExtra.SET
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:8:5-83
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:8:22-80
+uses-permission#ru.evotor.permission.receipt.print.INTERNET_RECEIPT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:10:5-91
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:10:22-88
+uses-permission#ru.evotor.permission.PAYMENT_SYSTEM
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:12:5-75
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:12:22-72
+application
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:14:5-284:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2762df556eb00935af44a9cef289bcc5\design-28.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2762df556eb00935af44a9cef289bcc5\design-28.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\88180c2d9df321ed403965b1f5904015\constraint-layout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\88180c2d9df321ed403965b1f5904015\constraint-layout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [com.github.evotor:query-api:1.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a0d106e64988fba151c277e5deca313a\query-api-1.0.0\AndroidManifest.xml:11:5-14:38
+MERGED from [com.github.evotor:query-api:1.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a0d106e64988fba151c277e5deca313a\query-api-1.0.0\AndroidManifest.xml:11:5-14:38
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f993d148e999fdf956a4937ae88c6ee1\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f993d148e999fdf956a4937ae88c6ee1\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:19:9-35
+	android:label
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:17:9-41
+	android:roundIcon
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:18:9-48
+	android:icon
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:16:9-43
+	android:allowBackup
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:15:9-35
+	android:theme
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:20:9-40
+meta-data#app_uuid
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:23:9-25:68
+	android:value
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:25:13-65
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:24:13-36
+activity#ru.qualitylab.evotor.evotortest6.MainActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:27:9-50:20
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:27:19-47
+meta-data#ru.evotor.launcher.BACKGROUND_COLOR
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:30:13-32:43
+	android:value
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:32:17-40
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:31:17-67
+intent-filter#action:name:ru.evotor.intent.action.SELL_MAIN+category:name:android.intent.category.EVOTOR+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:35:13-40:29
+action#ru.evotor.intent.action.SELL_MAIN
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:36:17-76
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:36:25-73
+category#android.intent.category.EVOTOR
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:38:17-75
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:38:27-72
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:39:17-77
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:39:27-74
+activity#ru.qualitylab.evotor.evotortest6.SuggestActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:51:9-53
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:51:19-50
+activity#ru.qualitylab.evotor.evotortest6.EditActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:52:9-50
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:52:19-47
+activity#ru.qualitylab.evotor.evotortest6.UserApiActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:53:9-53
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:53:19-50
+activity#ru.qualitylab.evotor.evotortest6.InventoryApiActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:54:9-58
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:54:19-55
+activity#ru.qualitylab.evotor.evotortest6.PayApiActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:55:9-52
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:55:19-49
+activity#ru.qualitylab.evotor.evotortest6.ReceiptApiActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:56:9-56
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:56:19-53
+activity#ru.qualitylab.evotor.evotortest6.PrintActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:57:9-51
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:57:19-48
+activity#ru.qualitylab.evotor.evotortest6.MyPaymentActivity
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:58:9-55
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:58:19-52
+service#ru.qualitylab.evotor.evotortest6.MyIntegrationService
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:60:9-78:19
+	android:enabled
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:62:13-35
+	android:label
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:65:13-40
+	android:exported
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:63:13-36
+	android:icon
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:64:13-47
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:61:13-49
+meta-data#ru.evotor.sales_screen.BACKGROUND_COLOR
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:66:13-68:43
+	android:value
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:68:17-40
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:67:17-71
+intent-filter#action:name:evo.v2.receipt.sell.beforePositionsEdited+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:73:13-77:29
+	android:priority
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:73:28-49
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:17-76
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:74:27-73
+action#evo.v2.receipt.sell.beforePositionsEdited
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:76:17-84
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:76:25-81
+receiver#ru.qualitylab.evotor.evotortest6.GlobalReceiver
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:81:9-204:20
+	android:enabled
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:83:13-35
+	android:exported
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:84:13-36
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:82:13-43
+intent-filter#action:name:evotor.intent.action.receipt.sell.OPENED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:87:13-91:29
+action#evotor.intent.action.receipt.sell.OPENED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:88:17-83
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:88:25-80
+intent-filter#action:name:evotor.intent.action.receipt.payback.OPENED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:94:13-98:29
+action#evotor.intent.action.receipt.payback.OPENED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:95:17-86
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:95:25-83
+intent-filter#action:name:evotor.intent.action.receipt.sell.POSITION_ADDED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:101:13-105:29
+action#evotor.intent.action.receipt.sell.POSITION_ADDED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:102:17-91
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:102:25-88
+intent-filter#action:name:evotor.intent.action.receipt.payback.POSITION_ADDED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:108:13-112:29
+action#evotor.intent.action.receipt.payback.POSITION_ADDED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:109:17-94
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:109:25-91
+intent-filter#action:name:evotor.intent.action.receipt.sell.POSITION_EDITED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:115:13-119:29
+action#evotor.intent.action.receipt.sell.POSITION_EDITED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:116:17-92
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:116:25-89
+intent-filter#action:name:evotor.intent.action.receipt.payback.POSITION_EDITED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:122:13-126:29
+action#evotor.intent.action.receipt.payback.POSITION_EDITED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:123:17-95
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:123:25-92
+intent-filter#action:name:evotor.intent.action.receipt.sell.POSITION_REMOVED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:129:13-133:29
+action#evotor.intent.action.receipt.sell.POSITION_REMOVED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:130:17-93
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:130:25-90
+intent-filter#action:name:evotor.intent.action.receipt.payback.POSITION_REMOVED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:136:13-140:29
+action#evotor.intent.action.receipt.payback.POSITION_REMOVED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:137:17-96
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:137:25-93
+intent-filter#action:name:evotor.intent.action.inventory.PRODUCTS_UPDATED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:143:13-147:29
+action#evotor.intent.action.inventory.PRODUCTS_UPDATED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:144:17-90
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:144:25-87
+intent-filter#action:name:evotor.intent.action.receipt.sell.CLEARED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:150:13-154:29
+action#evotor.intent.action.receipt.sell.CLEARED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:151:17-84
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:151:25-81
+intent-filter#action:name:evotor.intent.action.receipt.payback.CLEARED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:157:13-161:29
+action#evotor.intent.action.receipt.payback.CLEARED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:158:17-87
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:158:25-84
+intent-filter#action:name:evotor.intent.action.receipt.sell.RECEIPT_CLOSED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:164:13-168:29
+action#evotor.intent.action.receipt.sell.RECEIPT_CLOSED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:165:17-91
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:165:25-88
+intent-filter#action:name:evotor.intent.action.receipt.payback.RECEIPT_CLOSED+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:171:13-175:29
+action#evotor.intent.action.receipt.payback.RECEIPT_CLOSED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:172:17-94
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:172:25-91
+intent-filter#action:name:evotor.intent.action.cashOperation.IN+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:178:13-182:29
+action#evotor.intent.action.cashOperation.IN
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:179:17-80
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:179:25-77
+intent-filter#action:name:evotor.intent.action.cashOperation.CASH_OUT+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:185:13-189:29
+action#evotor.intent.action.cashOperation.CASH_OUT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:186:17-86
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:186:25-83
+intent-filter#action:name:evotor.intent.action.inventory.CARD_OPEN+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:192:13-196:29
+action#evotor.intent.action.inventory.CARD_OPEN
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:193:17-83
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:193:25-80
+intent-filter#action:name:evotor.intent.action.cashDrawer.OPEN+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:199:13-203:29
+action#evotor.intent.action.cashDrawer.OPEN
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:200:17-79
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:200:25-76
+service#ru.qualitylab.evotor.evotortest6.SplitService
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:207:9-216:19
+	android:enabled
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:209:13-35
+	android:label
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:212:13-55
+	android:exported
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:210:13-37
+	android:icon
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:211:13-47
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:208:13-41
+intent-filter#action:name:evo.v2.receipt.sell.payment.SELECTED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:213:13-215:29
+action#evo.v2.receipt.sell.payment.SELECTED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:214:17-79
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:214:25-76
+service#ru.qualitylab.evotor.evotortest6.MyDiscountService
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:234:9-243:19
+	android:enabled
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:236:13-35
+	android:label
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:239:13-42
+	android:exported
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:237:13-36
+	android:icon
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:238:13-47
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:235:13-46
+intent-filter#action:name:evo.v2.receipt.sell.receiptDiscount
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:240:13-242:29
+action#evo.v2.receipt.sell.receiptDiscount
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:241:17-78
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:241:25-75
+service#ru.qualitylab.evotor.evotortest6.MyPrintService
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:245:9-252:19
+	android:enabled
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:247:13-36
+	android:exported
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:248:13-36
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:246:13-43
+intent-filter#action:name:evo.v2.receipt.sell.printExtra.REQUIRED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:249:13-251:29
+action#evo.v2.receipt.sell.printExtra.REQUIRED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:250:17-82
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:250:25-79
+service#ru.qualitylab.evotor.evotortest6.MyPrintPaybackService
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:254:9-261:19
+	android:enabled
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:256:13-36
+	android:exported
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:257:13-36
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:255:13-50
+intent-filter#action:name:evo.v2.receipt.payback.printExtra.REQUIRED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:258:13-260:29
+action#evo.v2.receipt.payback.printExtra.REQUIRED
+ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:259:17-85
+	android:name
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml:259:25-82
+uses-sdk
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+MERGED from [com.github.evotor:integration-library:v0.4.40] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2b5572a82c93ec98ad2aa6a9fba0ea73\integration-library-v0.4.40\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.evotor:integration-library:v0.4.40] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2b5572a82c93ec98ad2aa6a9fba0ea73\integration-library-v0.4.40\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2762df556eb00935af44a9cef289bcc5\design-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2762df556eb00935af44a9cef289bcc5\design-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2ad9bfadafd430f8dbad1412b3cf8d16\appcompat-v7-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2ad9bfadafd430f8dbad1412b3cf8d16\appcompat-v7-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\88180c2d9df321ed403965b1f5904015\constraint-layout-1.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\88180c2d9df321ed403965b1f5904015\constraint-layout-1.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.evotor:push-notifications:v0.2.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\145a90f0baa41e15922d70f45864d583\push-notifications-v0.2.1\AndroidManifest.xml:7:5-44
+MERGED from [com.github.evotor:push-notifications:v0.2.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\145a90f0baa41e15922d70f45864d583\push-notifications-v0.2.1\AndroidManifest.xml:7:5-44
+MERGED from [com.github.evotor:query-api:1.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a0d106e64988fba151c277e5deca313a\query-api-1.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.evotor:query-api:1.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a0d106e64988fba151c277e5deca313a\query-api-1.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2c2719b22890890f5ae6a51c577cf1e6\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\2c2719b22890890f5ae6a51c577cf1e6\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\07ec705aed5324b71d72c4292188ba58\animated-vector-drawable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\07ec705aed5324b71d72c4292188ba58\animated-vector-drawable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\cbc9fded8b0ca2dc6b55abe24b8dd624\recyclerview-v7-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\cbc9fded8b0ca2dc6b55abe24b8dd624\recyclerview-v7-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\1334fe890717dc3473dc186f28449ae9\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\1334fe890717dc3473dc186f28449ae9\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\51316cf1e90ac9ba1040508849baa486\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\51316cf1e90ac9ba1040508849baa486\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\eef6aeb86cd4abc591f340e9ebffbc25\support-vector-drawable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\eef6aeb86cd4abc591f340e9ebffbc25\support-vector-drawable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\c5d3c2766ada7a1573158f87d282c560\transition-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\c5d3c2766ada7a1573158f87d282c560\transition-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\ad62f407f0f82b0a54b4d08f147faaa7\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\ad62f407f0f82b0a54b4d08f147faaa7\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\9e47cc7119ced64ae9076bee16f6f474\viewpager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\9e47cc7119ced64ae9076bee16f6f474\viewpager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\383ad2c48ccebde577332ae7ce906c52\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\383ad2c48ccebde577332ae7ce906c52\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\aabad928b9dfc3bb4f99a8e919d7ca2a\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\aabad928b9dfc3bb4f99a8e919d7ca2a\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\d777efb7f005f4061664eb152e4e4155\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\d777efb7f005f4061664eb152e4e4155\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\378cad5251b7bf9290fb2bb3c5781307\customview-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\378cad5251b7bf9290fb2bb3c5781307\customview-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a7cb32bf2478ccd8ed752b2b8a998b8f\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a7cb32bf2478ccd8ed752b2b8a998b8f\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\11902811a1e20f50ecac97c485be82b1\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\11902811a1e20f50ecac97c485be82b1\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f14724208b5bfeeef0d6bdefe649bca7\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f993d148e999fdf956a4937ae88c6ee1\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\f993d148e999fdf956a4937ae88c6ee1\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\16e10458eb3d86dce547be2d4dce65a9\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\16e10458eb3d86dce547be2d4dce65a9\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\67b0ea41bb31f1300bd726681636eb0e\cardview-v7-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\67b0ea41bb31f1300bd726681636eb0e\cardview-v7-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a4cce78b48541915b29a77ed3286103c\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a4cce78b48541915b29a77ed3286103c\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\d2514de441a98c98e63d23342e697e1c\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\d2514de441a98c98e63d23342e697e1c\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\587d4b4ba2bee95fa70ebde7fdef163e\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\587d4b4ba2bee95fa70ebde7fdef163e\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\6649028815494b2aeabe1bc5c2405c56\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\6649028815494b2aeabe1bc5c2405c56\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\5e2b7336b65fd01a7d1759b63ce95e82\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\5e2b7336b65fd01a7d1759b63ce95e82\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\5e443312ff8e9912636de42e05adc2a8\interpolator-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\5e443312ff8e9912636de42e05adc2a8\interpolator-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\bde0a02c7eaeb68bbbbe9daba8b5a4d3\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\bde0a02c7eaeb68bbbbe9daba8b5a4d3\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\80a25cd447b6f67296c411c5c16059bb\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\80a25cd447b6f67296c411c5c16059bb\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a9f3caa807bbac705342bf916bae7e9b\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\d.reyn\.gradle\caches\transforms-2\files-2.1\a9f3caa807bbac705342bf916bae7e9b\runtime-1.1.1\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d.reyn\Documents\AndroidStudioProjectsEvotor123\evotor-api-example\app\src\main\AndroidManifest.xml
