@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.qualitylab.evotor.evotortest6">
+    package="ru.fhs.evotor.remonline">
 
     <!-- Разрешение на использование сканера штрихкодов -->
     <uses-permission android:name="ru.evotor.devices.SCANNER_RECEIVER" />
@@ -13,23 +13,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_foreground"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <!-- UUID номер приложения в системе Эвотор. Вкладка APK приложения в ЛК -->
         <meta-data
             android:name="app_uuid"
-            android:value="66998575-ee62-4e87-b191-89f351fdc572" />
+            android:value="de71a856-25e8-49b4-8da8-3f4282f89b20" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="ru.fhs.evotor.remonline.MainActivity">
 
             <!-- Фон, на котором отображается иконка приложения. -->
             <meta-data
                 android:name="ru.evotor.launcher.BACKGROUND_COLOR"
-                android:value="#133788" />
+                android:value="#2190DC" />
 
             <!-- Чтобы заменить кнопку Продажа в интерфейсе терминала -->
             <intent-filter>
@@ -39,47 +38,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Чтобы заменить кнопку Продажа в интерфейсе терминала -->
-            <!--
-                        <intent-filter>
-                            &lt;!&ndash;Иконка приложения на главном экране смарт-терминала&ndash;&gt;
-                            <action android:name="android.intent.action.MAIN" />
-                            <category android:name="android.intent.category.EVOTOR" />
-                        </intent-filter>
-            -->
         </activity>
-        <activity android:name=".SuggestActivity" />
-        <activity android:name=".EditActivity" />
-        <activity android:name=".UserApiActivity" />
-        <activity android:name=".InventoryApiActivity" />
-        <activity android:name=".PayApiActivity" />
-        <activity android:name=".ReceiptApiActivity" />
-        <activity android:name=".PrintActivity" />
-        <activity android:name=".MyPaymentActivity" />
-
-        <service
-            android:name=".MyIntegrationService"
-            android:enabled="true"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="Suggest me!">
-            <meta-data
-                android:name="ru.evotor.sales_screen.BACKGROUND_COLOR"
-                android:value="#133788" />
-            <!-- <intent-filter android:priority="20"> -->
-            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
-            <!-- <action android:name="evo.v2.receipt.payback.receiptDiscount" /> -->
-            <!-- </intent-filter> -->
-            <intent-filter android:priority="20">
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <action android:name="evo.v2.receipt.sell.beforePositionsEdited" />
-            </intent-filter>
-        </service>
+        <activity android:name="ru.fhs.evotor.remonline.ReceiptApiActivity" />
 
         <!-- Получение событий об открытии чека, обновлении базы продуктов или результате изменения чека -->
         <receiver
-            android:name=".GlobalReceiver"
+            android:name="ru.fhs.evotor.remonline.GlobalReceiver"
             android:enabled="true"
             android:exported="true">
 
@@ -203,36 +167,10 @@
             </intent-filter>
         </receiver>
 
-        <!-- Разделение платежей в чеке продажи -->
-        <service
-            android:name=".SplitService"
-            android:enabled="true"
-            android:exported="false"
-            android:icon="@mipmap/ic_launcher"
-            android:label="Разделение платежей в чеке">
-            <intent-filter>
-                <action android:name="evo.v2.receipt.sell.payment.SELECTED" />
-            </intent-filter>
-        </service>
-
-        <!-- Разделение чека продажи на несколько печатных групп -->
-        <!--
-        <service
-            android:name=".SplitGroupService"
-            android:enabled="false"
-            android:exported="false"
-            android:icon="@mipmap/ic_launcher"
-            android:label="Разделение платежей в чеке на группы">
-            <intent-filter>
-                <action android:name="evo.v2.receipt.sell.printGroup.REQUIRED" />
-            </intent-filter>
-        </service>
-        -->
-
 
         <!-- Начисление скидки на чек возврата -->
         <service
-            android:name=".MyDiscountService"
+            android:name="ru.fhs.evotor.remonline.MyDiscountService"
             android:enabled="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
@@ -243,7 +181,7 @@
         </service>
         <!-- Печать дополнительной информации в чеке продажи -->
         <service
-            android:name=".MyPrintService"
+            android:name="ru.fhs.evotor.remonline.MyPrintService"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
@@ -252,35 +190,12 @@
         </service>
         <!-- Печать дополнительной информации в чеке возврата -->
         <service
-            android:name=".MyPrintPaybackService"
+            android:name="ru.fhs.evotor.remonline.MyPrintPaybackService"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
             </intent-filter>
         </service>
-
-        <!-- Служба для взаимодействия со сторонними платёжными системами -->
-        <!--
-        <service
-            android:name=".MyPaymentService"
-            android:exported="true"
-            android:icon="@android:drawable/ic_dialog_map"
-            android:label="Другая платежная система">
-            &lt;!&ndash;Цвет кнопки платёжной системы&ndash;&gt;
-            <meta-data
-                android:name="ru.evotor.sales_screen.BACKGROUND_COLOR"
-                android:value="@android:color/holo_green_light" />
-            <meta-data
-                android:name="ru.evotor.paymentSystem.PAYMENT_SYSTEM_ID"
-                android:value="${applicationId}" />
-
-            <intent-filter>
-                <action android:name="evo.v2.receipt.paymentSystem" />
-            </intent-filter>
-        </service>
-        -->
-
     </application>
-
 </manifest>

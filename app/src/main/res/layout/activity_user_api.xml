@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ru.qualitylab.evotor.evotortest6.UserApiActivity">
+    tools:context="ru.fhs.evotor.remonline.UserApiActivity">
 
     <ScrollView
         android:layout_width="match_parent"
