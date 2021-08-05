@@ -2,10 +2,8 @@ package ru.fhs.evotor.remonline
 
 import android.os.RemoteException
 import org.json.JSONException
-import org.json.JSONObject
 import ru.evotor.framework.core.IntegrationService
 import ru.evotor.framework.core.action.event.receipt.changes.position.IPositionChange
-import ru.evotor.framework.core.action.event.receipt.changes.position.SetExtra
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEvent
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEventProcessor
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEventResult
@@ -28,15 +26,12 @@ class MyDiscountService : IntegrationService() {
                 try {
                     //Значение скидки на весь чек в рублях или иной валюте
                     val discount = BigDecimal(10)
-                    val obj = JSONObject()
-                    obj.put("someSuperKey", "AWESOME DISCOUNT")
-                    val extra = SetExtra(obj)
 
                     val listOfChanges: List<IPositionChange> = ArrayList()
                     callback.onResult(
                         ReceiptDiscountEventResult(
                             discount,
-                            extra,
+                            null,
                             listOfChanges
                         )
                     )

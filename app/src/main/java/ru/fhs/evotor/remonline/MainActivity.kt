@@ -1,9 +1,14 @@
 package ru.fhs.evotor.remonline
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import ru.evotor.framework.core.IntegrationException
 import ru.evotor.framework.core.IntegrationManagerFuture
 import ru.evotor.framework.core.action.command.open_receipt_command.OpenSellReceiptCommand
@@ -15,19 +20,15 @@ import java.math.BigDecimal
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    private val adapter = GroupAdapter<GroupieViewHolder>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        title = applicationContext.packageName
-        findViewById<View>(R.id.btnOpenReceipt).setOnClickListener { view: View? -> openReceipt() }
-        findViewById<View>(R.id.btnReceiptAPI).setOnClickListener { view: View? ->
-            startActivity(
-                Intent(
-                    this@MainActivity,
-                    ReceiptApiActivity::class.java
-                )
-            )
-        }
+        title = getString(R.string.app_name)
+
+        rvReceipts.layoutManager = LinearLayoutManager(this)
+        rvReceipts.adapter = adapter
     }
 
     private fun openReceipt() {
