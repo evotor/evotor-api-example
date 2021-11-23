@@ -1,9 +1,11 @@
-package ru.fhs.evotor.remonline;
+package ru.fhs.evotor.remonline.utils;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.RemoteException;
+
+import androidx.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -14,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import androidx.annotation.Nullable;
 import ru.evotor.devices.commons.printer.printable.IPrintable;
 import ru.evotor.devices.commons.printer.printable.PrintableBarcode;
 import ru.evotor.devices.commons.printer.printable.PrintableImage;

@@ -1,4 +1,4 @@
-package ru.fhs.evotor.remonline
+package ru.fhs.evotor.remonline.utils
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

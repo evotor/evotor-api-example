@@ -11,7 +11,10 @@
     <!-- Поддержка сторонней платёжной системы -->
     <uses-permission android:name="ru.evotor.permission.PAYMENT_SYSTEM" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_foreground"
         android:label="@string/app_name"
@@ -24,7 +27,11 @@
             android:value="de71a856-25e8-49b4-8da8-3f4282f89b20" />
 
         <activity android:name="ru.fhs.evotor.remonline.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <!-- Фон, на котором отображается иконка приложения. -->
             <meta-data
                 android:name="ru.evotor.launcher.BACKGROUND_COLOR"
@@ -39,7 +46,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name="ru.fhs.evotor.remonline.ReceiptApiActivity" />
+        <activity android:name="ru.fhs.evotor.remonline.utils.ReceiptApiActivity" />
 
         <!-- Получение событий об открытии чека, обновлении базы продуктов или результате изменения чека -->
         <receiver
@@ -170,7 +177,7 @@
 
         <!-- Начисление скидки на чек возврата -->
         <service
-            android:name="ru.fhs.evotor.remonline.MyDiscountService"
+            android:name="ru.fhs.evotor.remonline.utils.MyDiscountService"
             android:enabled="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
@@ -181,7 +188,7 @@
         </service>
         <!-- Печать дополнительной информации в чеке продажи -->
         <service
-            android:name="ru.fhs.evotor.remonline.MyPrintService"
+            android:name="ru.fhs.evotor.remonline.utils.MyPrintService"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
@@ -190,7 +197,7 @@
         </service>
         <!-- Печать дополнительной информации в чеке возврата -->
         <service
-            android:name="ru.fhs.evotor.remonline.MyPrintPaybackService"
+            android:name="ru.fhs.evotor.remonline.utils.MyPrintPaybackService"
             android:enabled="false"
             android:exported="true">
             <intent-filter>

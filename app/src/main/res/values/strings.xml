@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ремонлайн ПЧС</string>
+    <string name="done">Готово</string>
+    <string name="code">Код</string>
+    <string name="input_code_from_site">Введите код с сайта</string>
+    <string name="sum_s">Сумма: %s руб</string>
 </resources>

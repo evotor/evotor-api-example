@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ru.fhs.evotor.remonline.ReceiptApiActivity">
+    tools:context="ru.fhs.evotor.remonline.utils.ReceiptApiActivity">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package ru.fhs.evotor.remonline
+package ru.fhs.evotor.remonline.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,6 +11,7 @@ import ru.evotor.framework.receipt.Receipt
 import ru.evotor.framework.receipt.ReceiptApi.getPositionsByBarcode
 import ru.evotor.framework.receipt.ReceiptApi.getReceipt
 import ru.evotor.integrations.BarcodeBroadcastReceiver
+import ru.fhs.evotor.remonline.R
 
 /**
  * Пример работы с ReceiptAPI

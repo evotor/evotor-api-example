@@ -1,18 +1,47 @@
 package ru.fhs.evotor.remonline.network
 
+import android.content.Context
+import com.readystatesoftware.chuck.ChuckInterceptor
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.fhs.evotor.remonline.prefs.AppSettings
 
 object RetrofitBuilder {
+    private const val BASE_URL = "https://fhs-sms.devigro.ru/evotor/"
 
-    private const val BASE_URL = "https://5e510330f2c0d300147c034c.mockapi.io/"
+    lateinit var apiService: ApiService
 
-    private fun getRetrofit(): Retrofit {
+    fun init(context: Context) {
+        apiService = getRetrofit(context).create(ApiService::class.java)
+    }
+
+    private fun getRetrofit(context: Context): Retrofit {
+        val okHttpClient = OkHttpClient.Builder()
+            .addInterceptor(ChuckInterceptor(context))
+            .addInterceptor(AuthInterceptor(AppSettings(context)))
+            .build()
+
         return Retrofit.Builder()
+            .client(okHttpClient)
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    val apiService: ApiService = getRetrofit().create(ApiService::class.java)
+    class AuthInterceptor constructor(private val appSettings: AppSettings) : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response {
+            val original = chain.request()
+            val token: String = appSettings.apiKey
+
+            val request = original.newBuilder()
+                .header("Authorization", "Bearer $token")
+                .method(original.method(), original.body())
+                .build()
+
+            return chain.proceed(request)
+        }
+    }
 }
