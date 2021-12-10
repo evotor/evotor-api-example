@@ -26,7 +26,7 @@ open class ReceiptItem(private val receipt: ReceiptModel, private val listener: 
             val sumFormatted = formatter.format(receipt.total).replace(",", " ")
             tvTotal.text = context.getString(R.string.sum_s, sumFormatted)
 
-            setOnClickListener { listener.onReceiptClick(receipt) }
+            btReceipt.setOnClickListener { listener.onReceiptClick(receipt) }
         }
     }
 

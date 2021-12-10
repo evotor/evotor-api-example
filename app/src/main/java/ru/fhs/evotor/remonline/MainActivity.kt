@@ -2,9 +2,11 @@ package ru.fhs.evotor.remonline
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity(), ReceiptItem.OnReceiptEventListener {
         setContentView(R.layout.activity_main)
         title = getString(R.string.app_name)
 
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>");
         setListeners()
         initApi()
     }
@@ -127,27 +130,31 @@ class MainActivity : AppCompatActivity(), ReceiptItem.OnReceiptEventListener {
         }
     }
 
-    private fun openReceipt() {
+    private fun openReceipt(receipt: ReceiptModel) {
         //Дополнительное поле для позиции. В списке наименований расположено под количеством и выделяется синим цветом
         val set: MutableSet<ExtraKey> = HashSet()
-        set.add(ExtraKey(null, null, "Тест Зубочистки"))
+        set.add(ExtraKey(null, null, receipt.title))
         //Создание списка товаров чека
         val positionAddList: MutableList<PositionAdd> = ArrayList()
-        positionAddList.add(
-            PositionAdd(
-                Position.Builder.newInstance( //UUID позиции
-                    UUID.randomUUID().toString(),  //UUID товара
-                    null,  //Наименование
-                    "Зубочистки",  //Наименование единицы измерения
-                    "кг",  //Точность единицы измерения
-                    0,  //Цена без скидок
-                    BigDecimal(400),  //Количество
-                    BigDecimal(1) //Добавление цены с учетом скидки на позицию. Итог = price - priceWithDiscountPosition
-                ).setPriceWithDiscountPosition(BigDecimal(100))
-                    .setExtraKeys(set).build()
-            )
-        )
 
+        receipt.items.forEach { item ->
+            positionAddList.add(
+                PositionAdd(
+                    Position.Builder.newInstance( //UUID позиции
+                        UUID.randomUUID().toString(),  //UUID товара
+                        null,  //Наименование
+                        item.name.orEmpty(),  //Наименование единицы измерения
+                        "шт",  //Точность единицы измерения
+                        item.price ?: 0,  //Цена без скидок
+                        BigDecimal(item.qty ?: 0),  //Количество
+                        BigDecimal(
+                            item.price ?: 0
+                        ) //Добавление цены с учетом скидки на позицию. Итог = price - priceWithDiscountPosition
+                    ).setPriceWithDiscountPosition(BigDecimal(100))
+                        .setExtraKeys(set).build()
+                )
+            )
+        }
 
         //Открытие чека продажи. Передаются: список наименований, дополнительные поля для приложения
         OpenSellReceiptCommand(positionAddList, null).process(this@MainActivity) { future: IntegrationManagerFuture ->
@@ -171,6 +178,6 @@ class MainActivity : AppCompatActivity(), ReceiptItem.OnReceiptEventListener {
     }
 
     override fun onReceiptClick(receipt: ReceiptModel) {
-
+        openReceipt(receipt)
     }
 }
