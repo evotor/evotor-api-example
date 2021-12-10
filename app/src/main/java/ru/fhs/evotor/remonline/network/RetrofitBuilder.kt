@@ -8,6 +8,9 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.fhs.evotor.remonline.prefs.AppSettings
+import javax.net.ssl.HostnameVerifier
+import javax.net.ssl.HttpsURLConnection
+import javax.net.ssl.SSLSession
 
 object RetrofitBuilder {
     private const val BASE_URL = "https://fhs-sms.devigro.ru/evotor/"
