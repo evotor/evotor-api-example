@@ -145,13 +145,10 @@ class MainActivity : AppCompatActivity(), ReceiptItem.OnReceiptEventListener {
                         null,  //Наименование
                         item.name.orEmpty(),  //Наименование единицы измерения
                         "шт",  //Точность единицы измерения
-                        item.price ?: 0,  //Цена без скидок
+                        0,
+                            BigDecimal(item.price ?: 0),  //Цена без скидок
                         BigDecimal(item.qty ?: 0),  //Количество
-                        BigDecimal(
-                            item.price ?: 0
-                        ) //Добавление цены с учетом скидки на позицию. Итог = price - priceWithDiscountPosition
-                    ).setPriceWithDiscountPosition(BigDecimal(100))
-                        .setExtraKeys(set).build()
+                    ).setExtraKeys(set).build()
                 )
             )
         }

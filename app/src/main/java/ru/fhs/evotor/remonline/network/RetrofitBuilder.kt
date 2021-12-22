@@ -11,6 +11,11 @@ import ru.fhs.evotor.remonline.prefs.AppSettings
 import javax.net.ssl.HostnameVerifier
 import javax.net.ssl.HttpsURLConnection
 import javax.net.ssl.SSLSession
+import javax.net.ssl.X509TrustManager
+import javax.security.cert.X509Certificate
+import javax.net.ssl.SSLContext
+import javax.net.ssl.TrustManager
+import java.security.SecureRandom
 
 object RetrofitBuilder {
     private const val BASE_URL = "https://fhs-sms.devigro.ru/evotor/"
@@ -22,7 +27,7 @@ object RetrofitBuilder {
     }
 
     private fun getRetrofit(context: Context): Retrofit {
-        val okHttpClient = OkHttpClient.Builder()
+        val okHttpClient = getTrustAllCertsClient()
             .addInterceptor(ChuckInterceptor(context))
             .addInterceptor(AuthInterceptor(AppSettings(context)))
             .build()
@@ -32,6 +37,24 @@ object RetrofitBuilder {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    fun getTrustAllCertsClient(): OkHttpClient.Builder {
+        val trustAllCerts = arrayOf<TrustManager>(
+                object : X509TrustManager {
+                    override fun checkClientTrusted(chain: Array<java.security.cert.X509Certificate>, authType: String) {}
+                    override fun checkServerTrusted(chain: Array<java.security.cert.X509Certificate>, authType: String) {}
+                    override fun getAcceptedIssuers(): Array<java.security.cert.X509Certificate> {
+                        return arrayOf()
+                    }
+                }
+        )
+        val sslContext = SSLContext.getInstance("SSL")
+        sslContext.init(null, trustAllCerts, SecureRandom())
+        val newBuilder = OkHttpClient.Builder()
+        newBuilder.sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
+        newBuilder.hostnameVerifier { hostname: String?, session: SSLSession? -> true }
+        return newBuilder
     }
 
     class AuthInterceptor constructor(private val appSettings: AppSettings) : Interceptor {
