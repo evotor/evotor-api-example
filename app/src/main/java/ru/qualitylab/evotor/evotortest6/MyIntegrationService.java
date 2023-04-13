@@ -2,8 +2,8 @@ package ru.qualitylab.evotor.evotortest6;
 
 import android.content.Intent;
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,6 @@ import java.util.Map;
 import ru.evotor.framework.core.IntegrationService;
 import ru.evotor.framework.core.action.event.receipt.before_positions_edited.BeforePositionsEditedEvent;
 import ru.evotor.framework.core.action.event.receipt.before_positions_edited.BeforePositionsEditedEventProcessor;
-import ru.evotor.framework.core.action.event.receipt.before_positions_edited.BeforePositionsEditedEventResult;
 import ru.evotor.framework.core.action.event.receipt.changes.position.IPositionChange;
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionAdd;
 import ru.evotor.framework.core.action.processor.ActionProcessor;

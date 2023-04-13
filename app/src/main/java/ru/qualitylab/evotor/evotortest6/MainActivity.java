@@ -3,7 +3,6 @@ package ru.qualitylab.evotor.evotortest6;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -23,23 +22,25 @@ import ru.evotor.framework.core.IntegrationException;
 import ru.evotor.framework.core.IntegrationManagerCallback;
 import ru.evotor.framework.core.IntegrationManagerFuture;
 import ru.evotor.framework.core.action.command.open_receipt_command.OpenPaybackReceiptCommand;
+import ru.evotor.framework.core.action.command.open_receipt_command.OpenReceiptCommandResult;
 import ru.evotor.framework.core.action.command.open_receipt_command.OpenSellReceiptCommand;
 import ru.evotor.framework.core.action.command.print_receipt_command.PrintReceiptCommandResult;
 import ru.evotor.framework.core.action.command.print_receipt_command.PrintSellReceiptCommand;
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionAdd;
-import ru.evotor.framework.core.action.event.receipt.changes.position.SetExtra;
+import ru.evotor.framework.core.action.event.receipt.changes.receipt.SetExtra;
 import ru.evotor.framework.navigation.NavigationApi;
 import ru.evotor.framework.payment.PaymentSystem;
 import ru.evotor.framework.payment.PaymentType;
 import ru.evotor.framework.receipt.ExtraKey;
+import ru.evotor.framework.receipt.Measure;
 import ru.evotor.framework.receipt.Payment;
 import ru.evotor.framework.receipt.Position;
 import ru.evotor.framework.receipt.PrintGroup;
 import ru.evotor.framework.receipt.Receipt;
+import ru.evotor.framework.users.User;
+import ru.evotor.framework.users.UserApi;
 
 public class MainActivity extends IntegrationAppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,9 +128,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                         //Наименование
                         "1234",
                         //Наименование единицы измерения
-                        "12",
-                        //Точность единицы измерения
-                        0,
+                        new Measure("12", 0, 0),
                         //Цена без скидок
                         new BigDecimal(1000),
                         //Количество
@@ -141,8 +140,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                         UUID.randomUUID().toString(),
                         null,
                         "1234",
-                        "12",
-                        0,
+                        new Measure("12", 0, 0),
                         new BigDecimal(500),
                         BigDecimal.ONE)
                         //Добавление цены с учетом скидки на позицию. Итог = price - priceWithDiscountPosition
@@ -165,8 +163,10 @@ public class MainActivity extends IntegrationAppCompatActivity {
                 null,
                 null
         ), new BigDecimal(9300 ));
-        PrintGroup printGroup = new PrintGroup(UUID.randomUUID().toString(),
-                PrintGroup.Type.CASH_RECEIPT, null, null, null, null, false, null);
+        PrintGroup printGroup = new PrintGroup(
+                UUID.randomUUID().toString(),
+                PrintGroup.Type.CASH_RECEIPT,
+                null, null, null, null, false, null, null);
         Receipt.PrintReceipt printReceipt = new Receipt.PrintReceipt(
                 printGroup,
                 list,
@@ -178,7 +178,19 @@ public class MainActivity extends IntegrationAppCompatActivity {
         listDocs.add(printReceipt);
         //Добавление скидки на чек
         BigDecimal receiptDiscount = new BigDecimal(1000);
-        new PrintSellReceiptCommand(listDocs, null, "79011234567", "example@example.com", receiptDiscount).process(MainActivity.this, new IntegrationManagerCallback() {
+
+        User currentUser = UserApi.getAuthenticatedUser(this);
+
+        new PrintSellReceiptCommand(
+                listDocs,
+                null,
+                "79011234567",
+                "example@example.com",
+                receiptDiscount,
+                null,
+                null,
+                currentUser.getUuid()
+        ).process(MainActivity.this, new IntegrationManagerCallback() {
             @Override
             public void run(IntegrationManagerFuture integrationManagerFuture) {
                 try {
@@ -215,9 +227,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                                 //Наименование
                                 "Зубочистки",
                                 //Наименование единицы измерения
-                                "кг",
-                                //Точность единицы измерения
-                                0,
+                                new Measure("кг", 0, 0),
                                 //Цена без скидок
                                 new BigDecimal(200),
                                 //Количество
@@ -238,19 +248,29 @@ public class MainActivity extends IntegrationAppCompatActivity {
         SetExtra extra = new SetExtra(object);
 
         //Открытие чека продажи. Передаются: список наименований, дополнительные поля для приложения
-        new OpenSellReceiptCommand(positionAddList, extra).process(MainActivity.this, new IntegrationManagerCallback() {
-            @Override
-            public void run(IntegrationManagerFuture future) {
-                try {
-                    IntegrationManagerFuture.Result result = future.getResult();
-                    if (result.getType() == IntegrationManagerFuture.Result.Type.OK) {
-                        startActivity(new Intent("evotor.intent.action.payment.SELL"));
+        new OpenSellReceiptCommand(positionAddList, extra, null)
+                .process(MainActivity.this, future -> {
+                    try {
+                        IntegrationManagerFuture.Result result = future.getResult();
+                        if (result.getType() == IntegrationManagerFuture.Result.Type.OK) {
+                            startActivity(NavigationApi.createIntentForSellReceiptPayment());
+                        } else if (result.getType() == IntegrationManagerFuture.Result.Type.ERROR) {
+                            switch (result.getError().getCode()) {
+                                case OpenReceiptCommandResult.ERROR_CODE_SELL_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_BUY_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_PAYBACK_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_BUYBACK_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_INCOME_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_OUTCOME_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_RETURN_INCOME_RECEIPT_IS_ALREADY_OPEN:
+                                case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_RETURN_OUTCOME_RECEIPT_IS_ALREADY_OPEN:
+                                    startActivity(NavigationApi.createIntentForSellReceiptEdit(false));
+                            }
+                        }
+                    } catch (IntegrationException e) {
+                        e.printStackTrace();
                     }
-                } catch (IntegrationException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+                });
     }
 
     //Открытие чека возврата
@@ -265,8 +285,7 @@ public class MainActivity extends IntegrationAppCompatActivity {
                                 UUID.randomUUID().toString(),
                                 null,
                                 "Зубочистки",
-                                "кг",
-                                0,
+                                new Measure("кг", 0, 0),
                                 new BigDecimal(200),
                                 new BigDecimal(1)
                         ).setExtraKeys(set).build()));
@@ -279,20 +298,28 @@ public class MainActivity extends IntegrationAppCompatActivity {
 
         SetExtra extra = new SetExtra(object);
         //Открытие чека возврата. Передаются: список наименований, дополнительные поля для приложения
-        new OpenPaybackReceiptCommand(positionAddList, extra).process(MainActivity.this, new IntegrationManagerCallback() {
-            @Override
-            public void run(IntegrationManagerFuture future) {
+        new OpenPaybackReceiptCommand(positionAddList, extra, null)
+            .process(MainActivity.this, future -> {
                 try {
                     IntegrationManagerFuture.Result result = future.getResult();
                     if (result.getType() == IntegrationManagerFuture.Result.Type.OK) {
-                        startActivity(new Intent("evotor.intent.action.payment.PAYBACK"));
+                        startActivity(NavigationApi.createIntentForPaybackReceiptPayment());
+                    } else if (result.getType() == IntegrationManagerFuture.Result.Type.ERROR) {
+                        switch (result.getError().getCode()) {
+                            case OpenReceiptCommandResult.ERROR_CODE_SELL_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_BUY_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_PAYBACK_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_BUYBACK_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_INCOME_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_OUTCOME_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_RETURN_INCOME_RECEIPT_IS_ALREADY_OPEN:
+                            case OpenReceiptCommandResult.ERROR_CODE_CORRECTION_RETURN_OUTCOME_RECEIPT_IS_ALREADY_OPEN:
+                                startActivity(NavigationApi.createIntentForPaybackReceiptEdit());
+                        }
                     }
                 } catch (IntegrationException e) {
                     e.printStackTrace();
                 }
-            }
-        });
+            });
     }
-
-
 }

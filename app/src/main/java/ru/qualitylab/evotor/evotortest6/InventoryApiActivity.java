@@ -72,7 +72,7 @@ public class InventoryApiActivity extends IntegrationAppCompatActivity {
                             .append("Description: ")
                             .append(prod.getDescription())
                             .append("\nMeasureName: ")
-                            .append(prod.getMeasureName())
+                            .append(prod.getMeasure().getName())
                             .append("\nPrice: ")
                             .append(prod.getPrice().toString())
                             .append("\nQuantity: ")
