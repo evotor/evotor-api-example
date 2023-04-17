@@ -22,10 +22,11 @@ import ru.evotor.framework.core.action.event.receipt.changes.position.IPositionC
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionAdd;
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionEdit;
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionRemove;
-import ru.evotor.framework.core.action.event.receipt.changes.position.SetExtra;
+import ru.evotor.framework.core.action.event.receipt.changes.receipt.SetExtra;
 import ru.evotor.framework.inventory.InventoryApi;
 import ru.evotor.framework.inventory.ProductItem;
 import ru.evotor.framework.receipt.ExtraKey;
+import ru.evotor.framework.receipt.Measure;
 import ru.evotor.framework.receipt.Position;
 import ru.evotor.framework.receipt.Receipt;
 import ru.evotor.framework.receipt.ReceiptApi;
@@ -65,7 +66,7 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
             public void onClick(View view) {
                 List<IPositionChange> changes = new ArrayList<>();
                 changes.add(new PositionRemove(uuidCoffee));
-                setIntegrationResult(new BeforePositionsEditedEventResult(changes, null));
+                setIntegrationResult(new BeforePositionsEditedEventResult(changes, null, null));
                 finish();
             }
         });
@@ -96,8 +97,7 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
                                     position,
                                     item.getUuid(),
                                     item.getName(),
-                                    item.getMeasureName(),
-                                    item.getMeasurePrecision(),
+                                    item.getMeasure(),
                                     item.getPrice(),
                                     new BigDecimal(qty.getText().toString())
                             ).build()
@@ -111,7 +111,7 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
                         e.printStackTrace();
                     }
                     SetExtra extra = new SetExtra(object);
-                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, extra));
+                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, extra, null));
                 }
                 finish();
             }
@@ -126,8 +126,7 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
                         UUID.randomUUID().toString(),
                         null,
                         "Зажигалка",
-                        "шт",
-                        0,
+                        new Measure("шт", 0, 0),
                         new BigDecimal(30),
                         new BigDecimal(qty.getText().toString())
                 ).build();
@@ -142,7 +141,7 @@ public class SuggestActivity extends IntegrationAppCompatActivity {
                     e.printStackTrace();
                 }
                 SetExtra extra = new SetExtra(object);
-                setIntegrationResult(new BeforePositionsEditedEventResult(changes, extra));
+                setIntegrationResult(new BeforePositionsEditedEventResult(changes, extra, null));
                 finish();
             }
         });

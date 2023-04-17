@@ -16,6 +16,7 @@ import ru.evotor.framework.core.action.event.receipt.before_positions_edited.Bef
 import ru.evotor.framework.core.action.event.receipt.changes.position.IPositionChange;
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionAdd;
 import ru.evotor.framework.core.action.event.receipt.changes.position.PositionRemove;
+import ru.evotor.framework.receipt.Measure;
 import ru.evotor.framework.receipt.Position;
 import ru.evotor.framework.receipt.Receipt;
 import ru.evotor.framework.receipt.ReceiptApi;
@@ -70,7 +71,7 @@ public class EditActivity extends IntegrationAppCompatActivity {
                     for (CustomEditObject item : objects) {
                         changes.add(new PositionRemove(item.getUuid()));
                     }
-                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, null));
+                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, null, null));
                     finish();
                 }
             }
@@ -86,13 +87,12 @@ public class EditActivity extends IntegrationAppCompatActivity {
                                 UUID.randomUUID().toString(),
                                 item.getUuid(),
                                 item.getName(),
-                                "шт",
-                                0,
+                                new Measure("шт", 0, 0),
                                 new BigDecimal(item.getPrice()),
                                 new BigDecimal(item.getQty())
                         ).build()));
                     }
-                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, null));
+                    setIntegrationResult(new BeforePositionsEditedEventResult(changes, null, null));
                     finish();
                 }
             }

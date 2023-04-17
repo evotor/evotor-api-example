@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.qualitylab.evotor.evotortest6">
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Разрешение на использование сканера штрихкодов -->
     <uses-permission android:name="ru.evotor.devices.SCANNER_RECEIVER" />
     <!-- Разрешение на печать своих данных в чеке -->
@@ -24,7 +22,8 @@
             android:name="app_uuid"
             android:value="66998575-ee62-4e87-b191-89f351fdc572" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
 
             <!-- Фон, на котором отображается иконка приложения. -->
             <meta-data

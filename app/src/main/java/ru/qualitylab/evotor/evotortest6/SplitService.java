@@ -1,12 +1,11 @@
 package ru.qualitylab.evotor.evotortest6;
 
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -14,22 +13,14 @@ import java.util.Map;
 
 import ru.evotor.framework.component.PaymentPerformer;
 import ru.evotor.framework.core.IntegrationService;
-import ru.evotor.framework.core.action.event.receipt.changes.position.SetExtra;
-import ru.evotor.framework.core.action.event.receipt.changes.position.SetPrintGroup;
+import ru.evotor.framework.core.action.event.receipt.changes.receipt.SetExtra;
 import ru.evotor.framework.core.action.event.receipt.payment.PaymentSelectedEvent;
 import ru.evotor.framework.core.action.event.receipt.payment.PaymentSelectedEventProcessor;
 import ru.evotor.framework.core.action.event.receipt.payment.PaymentSelectedEventResult;
-import ru.evotor.framework.core.action.event.receipt.print_group.PrintGroupRequiredEvent;
-import ru.evotor.framework.core.action.event.receipt.print_group.PrintGroupRequiredEventProcessor;
-import ru.evotor.framework.core.action.event.receipt.print_group.PrintGroupRequiredEventResult;
 import ru.evotor.framework.core.action.processor.ActionProcessor;
 import ru.evotor.framework.payment.PaymentPurpose;
 import ru.evotor.framework.payment.PaymentSystem;
 import ru.evotor.framework.payment.PaymentType;
-import ru.evotor.framework.receipt.PrintGroup;
-import ru.evotor.framework.receipt.Purchaser;
-import ru.evotor.framework.receipt.PurchaserType;
-import ru.evotor.framework.receipt.TaxationSystem;
 
 /**
  * Разделение чека на платежи
