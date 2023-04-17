@@ -1,11 +1,12 @@
 package ru.qualitylab.evotor.evotortest6;
 
+import static org.junit.Assert.assertEquals;
+
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
+
+import androidx.test.InstrumentationRegistry;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Instrumentation test, which will execute on an Android device.
