@@ -2,7 +2,7 @@ package ru.qualitylab.evotor.evotortest6;
 
 import android.content.Intent;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import java.util.HashMap;

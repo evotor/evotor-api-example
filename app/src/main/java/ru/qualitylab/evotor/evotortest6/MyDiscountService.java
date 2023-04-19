@@ -1,8 +1,8 @@
 package ru.qualitylab.evotor.evotortest6;
 
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 import ru.evotor.framework.core.IntegrationService;
 import ru.evotor.framework.core.action.event.receipt.changes.position.IPositionChange;
-import ru.evotor.framework.core.action.event.receipt.changes.position.SetExtra;
+import ru.evotor.framework.core.action.event.receipt.changes.receipt.SetExtra;
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEvent;
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEventProcessor;
 import ru.evotor.framework.core.action.event.receipt.discount.ReceiptDiscountEventResult;
@@ -44,7 +44,8 @@ public class MyDiscountService extends IntegrationService {
                             new ReceiptDiscountEventResult(
                                     discount,
                                     extra,
-                                    listOfChanges
+                                    listOfChanges,
+                                    null
                             ));
                 } catch (JSONException | RemoteException e) {
                     e.printStackTrace();
