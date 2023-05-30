@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <!-- Разрешение на использование сканера штрихкодов -->
     <uses-permission android:name="ru.evotor.devices.SCANNER_RECEIVER" />
     <!-- Разрешение на печать своих данных в чеке -->
@@ -8,6 +9,7 @@
     <uses-permission android:name="ru.evotor.permission.receipt.print.INTERNET_RECEIPT" />
     <!-- Поддержка сторонней платёжной системы -->
     <uses-permission android:name="ru.evotor.permission.PAYMENT_SYSTEM" />
+    <uses-permission android:name="ru.evotor.permission.COMBINED" />
 
     <application
         android:allowBackup="true"
@@ -16,13 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".combo_payment.ComboPaymentActivity"
+            android:exported="false" />
         <!-- UUID номер приложения в системе Эвотор. Вкладка APK приложения в ЛК -->
         <meta-data
             android:name="app_uuid"
             android:value="66998575-ee62-4e87-b191-89f351fdc572" />
 
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
 
             <!-- Фон, на котором отображается иконка приложения. -->
@@ -32,21 +37,14 @@
 
             <!-- Чтобы заменить кнопку Продажа в интерфейсе терминала -->
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <action android:name="ru.evotor.intent.action.SELL_MAIN" />
 
                 <category android:name="android.intent.category.EVOTOR" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
-            <!-- Чтобы заменить кнопку Продажа в интерфейсе терминала -->
-            <!--
-                        <intent-filter>
-                            &lt;!&ndash;Иконка приложения на главном экране смарт-терминала&ndash;&gt;
-                            <action android:name="android.intent.action.MAIN" />
-                            <category android:name="android.intent.category.EVOTOR" />
-                        </intent-filter>
-            -->
         </activity>
+
         <activity android:name=".SuggestActivity" />
         <activity android:name=".EditActivity" />
         <activity android:name=".UserApiActivity" />
@@ -280,6 +278,20 @@
         </service>
         -->
 
+        <service
+            android:name=".combo_payment.ComboPaymentService"
+            android:exported="true"
+            android:label="Комбооплата">
+            <meta-data
+                android:name="ru.evotor.sales_screen.BACKGROUND_COLOR"
+                android:value="@android:color/white" />
+            <intent-filter>
+                <action android:name="evo.v2.receipt.sell.payment.COMBINED" />
+                <action android:name="evo.v2.receipt.payback.payment.COMBINED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
