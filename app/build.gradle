@@ -1,10 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
+
     defaultConfig {
         applicationId 'ru.qualitylab.evotor.evotortest6'
         minSdkVersion 23
+        //noinspection EditedTargetSdkVersion
         targetSdkVersion 33
         versionCode 6
         versionName "6"
@@ -28,19 +31,26 @@ android {
     productFlavors {
     }
     namespace 'ru.qualitylab.evotor.evotortest6'
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlin {
+        jvmToolchain(8)
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     implementation 'com.github.evotor:integration-library:v0.6.03'
 
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.legacy:legacy-support-v4:1.0.0"
     implementation 'com.thedeanda:lorem:2.1'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    testImplementation 'junit:junit:4.13.2'
 }

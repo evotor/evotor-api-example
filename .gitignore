@@ -1,3 +1,14 @@
 /.idea
 .gradle
 local.properties
+=======
+codeiris
+*.iml
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+*/build
+projectFilesBackup/
+/build-logic/convention/build/

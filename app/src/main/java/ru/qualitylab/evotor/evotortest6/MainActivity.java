@@ -127,7 +127,6 @@ public class MainActivity extends IntegrationAppCompatActivity {
                         null,
                         //Наименование
                         "1234",
-                        //Наименование единицы измерения
                         new Measure("12", 0, 0),
                         //Цена без скидок
                         new BigDecimal(1000),
@@ -226,7 +225,6 @@ public class MainActivity extends IntegrationAppCompatActivity {
                                 null,
                                 //Наименование
                                 "Зубочистки",
-                                //Наименование единицы измерения
                                 new Measure("кг", 0, 0),
                                 //Цена без скидок
                                 new BigDecimal(200),
